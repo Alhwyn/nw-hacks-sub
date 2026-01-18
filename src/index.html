@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' data: blob: https://*.elevenlabs.io; img-src 'self' data:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://api.elevenlabs.io wss://*.elevenlabs.io">
+  <title>Granny</title>
+</head>
+<body>
+  <div id="root"></div>
+  <div
+    id="screen-permission-modal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="permission-title"
+    aria-describedby="permission-reason"
+  >
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-icon" aria-hidden="true">i</div>
+        <h3 id="permission-title">Allow screen view?</h3>
+      </div>
+      <p id="permission-reason">
+        The assistant would like to view your screen to help you better.
+      </p>
+      <div class="modal-buttons">
+        <button id="permission-deny" class="modal-btn secondary" type="button">Not now</button>
+        <button id="permission-allow" class="modal-btn primary" type="button">Allow</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/main.tsx"></script>
+</body>
+</html>

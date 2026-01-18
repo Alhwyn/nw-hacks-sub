@@ -1,9 +1,23 @@
 {
-  "name": "odly",
-  "main": "index.ts",
-  "module": "index.ts",
-  "type": "module",
+  "name": "granny",
+  "version": "1.0.0",
+  "description": "Electron app built with TypeScript and Bun",
+  "main": "dist-electron/main.js",
   "private": true,
+  "scripts": {
+    "build:electron": "bun run tsc -p tsconfig.electron.json",
+    "build:renderer": "vite build",
+    "build": "bun run build:electron && bun run build:renderer",
+    "start": "bun run build && electron .",
+    "dev": "bun run build:electron && concurrently -k \"bun run watch:electron\" \"electron .\"",
+    "dev:watch": "concurrently -k \"bun run watch:electron\" \"bun run watch:renderer\" \"bun run watch:app\"",
+    "watch:electron": "bun run tsc -p tsconfig.electron.json --watch",
+    "watch:renderer": "vite",
+    "watch:app": "sleep 2 && electron .",
+    "clean": "rm -rf dist-electron dist-renderer",
+    "build:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css",
+    "watch:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "@types/bun": "latest",
@@ -12,15 +26,24 @@
     "electron": "^40.0.0",
     "electron-builder": "^26.4.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "concurrently": "^9.2.1",
+    "typescript": "^5",
+    "vite": "^7.3.1"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
   },
-  "scripts": {
-    "build:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css",
-    "watch:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css",
-    "start": "electron .",
-    "dev": "electron . --inspect=5858"
+  "dependencies": {
+    "@11labs/client": "^0.2.0",
+    "@supabase/supabase-js": "^2.90.1",
+    "dotenv": "^17.2.3",
+    "elevenlabs": "^1.59.0",
+    "install": "^0.13.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   }
 }
