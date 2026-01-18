@@ -26,10 +26,18 @@ contextBridge.exposeInMainWorld('electronAPI', {
   vision: {
     analyzeScreen: (question?: string) => ipcRenderer.invoke('vision:analyzeScreen', question),
     captureAndDescribe: () => ipcRenderer.invoke('vision:captureAndDescribe'),
+    summarizeConversation: (messages: any[]) => ipcRenderer.invoke('gemini:summarize', messages),
   },
 
   // Screenshot (kept for potential future use)
   screen: {
     capture: () => ipcRenderer.invoke('screen:capture'),
+  },
+
+  // Supabase API
+  supabase: {
+    saveMemory: (memory: any) => ipcRenderer.invoke('supabase:saveMemory', memory),
+    getRecentMemories: (userId: string, limit?: number) => ipcRenderer.invoke('supabase:getRecentMemories', userId, limit),
+    sendNudge: (nudge: any) => ipcRenderer.invoke('supabase:sendNudge', nudge),
   },
 });

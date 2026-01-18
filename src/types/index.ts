@@ -1,4 +1,6 @@
-// Type definitions for the Granny voice assistant app
+import { Memory, RelationshipNudge, UserRole } from '../../electron/types';
+
+export type { Memory, RelationshipNudge, UserRole };
 
 export interface Message {
   id: string;
@@ -51,9 +53,15 @@ export interface ElectronAPI {
   vision: {
     analyzeScreen: (question?: string) => Promise<string>;
     captureAndDescribe: () => Promise<ScreenContext>;
+    summarizeConversation: (messages: { role: string, content: string }[]) => Promise<string>;
   };
   screen: {
     capture: () => Promise<string | null>;
+  };
+  supabase: {
+    saveMemory: (memory: Omit<Memory, 'id' | 'timestamp'>) => Promise<any>;
+    getRecentMemories: (userId: UserRole, limit?: number) => Promise<Memory[]>;
+    sendNudge: (nudge: Omit<RelationshipNudge, 'id' | 'timestamp' | 'status'>) => Promise<any>;
   };
 }
 

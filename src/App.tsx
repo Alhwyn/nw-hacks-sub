@@ -4,6 +4,7 @@ import { Titlebar } from './components/Titlebar';
 import { StatusIndicator } from './components/StatusIndicator';
 import { ChatArea } from './components/ChatArea';
 import { VoiceControls } from './components/VoiceControls';
+import { RelationshipFeed } from './components/RelationshipFeed';
 import './styles.css';
 
 const AppContent: React.FC = () => {
@@ -49,7 +50,10 @@ const AppContent: React.FC = () => {
       <Titlebar />
       <StatusIndicator />
       <div className="app-container">
-        <ChatArea />
+        <div className="main-content">
+          <ChatArea />
+          <RelationshipFeed />
+        </div>
         <VoiceControls />
       </div>
     </>

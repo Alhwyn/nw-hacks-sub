@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useState, useCallback, useRef, ReactNode } from 'react';
 import { Conversation } from '@11labs/client';
-import { Message, ConnectionStatus, ConversationMode } from '../types';
+import { Message, ConnectionStatus, ConversationMode, UserRole } from '../types';
 
 interface ConversationContextValue {
   // State
+  userRole: UserRole;
   conversation: Conversation | null;
   isCallActive: boolean;
   messages: Message[];
@@ -13,6 +14,7 @@ interface ConversationContextValue {
   currentScreenContext: string | null;
   
   // Actions
+  setUserRole: (role: UserRole) => void;
   startConversation: () => Promise<void>;
   endConversation: () => Promise<void>;
   interruptAgent: () => void;
@@ -37,6 +39,7 @@ interface ConversationProviderProps {
 }
 
 export const ConversationProvider: React.FC<ConversationProviderProps> = ({ children }) => {
+  const [userRole, setUserRole] = useState<UserRole>('grandma');
   const [conversation, setConversation] = useState<Conversation | null>(null);
   const [isCallActive, setIsCallActive] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -182,6 +185,23 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
               return 'Unable to analyze screen at this moment.';
             }
           },
+          trigger_relationship_nudge: async (params: { type: 'alert' | 'update', title: string, message: string, context: string }) => {
+            console.log('=== TOOL CALL RECEIVED: trigger_relationship_nudge ===');
+            console.log('Tool params:', params);
+            try {
+              const result = await api.supabase.sendNudge({
+                type: params.type,
+                title: params.title,
+                message: params.message,
+                context: params.context
+              });
+              console.log('=== TOOL CALL COMPLETED: trigger_relationship_nudge ===', result);
+              return 'Notification sent successfully to your grandson.';
+            } catch (error) {
+              console.error('Error in trigger_relationship_nudge tool:', error);
+              return 'Failed to send notification.';
+            }
+          }
         },
         // Handle tool calls for tools not registered locally
         onUnhandledClientToolCall: (toolCall) => {
@@ -190,9 +210,30 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
           fetch('http://127.0.0.1:7254/ingest/9783cea7-141f-45fd-bc2e-dc110810f23f',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H3',location:'ConversationContext.tsx:170',message:'unhandled tool call',data:{toolName:(toolCall as any)?.toolName || (toolCall as any)?.name},timestamp:Date.now()})}).catch(()=>{});
           // #endregion agent log
         },
-        onConnect: () => {
+        onConnect: async () => {
           console.log('Connected to ElevenLabs conversation');
           console.log('Agent has initial screen context:', !!initialScreenContext);
+          
+          // Inject Relationship Context / Memories
+          try {
+            const targetRole = userRole === 'grandma' ? 'grandson' : 'grandma';
+            const recentMemories = await api.supabase.getRecentMemories(targetRole, 3);
+            
+            if (recentMemories && recentMemories.length > 0) {
+              const memoryContext = recentMemories
+                .map((m: any) => `- ${m.content} (${new Date(m.timestamp).toLocaleDateString()})`)
+                .join('\n');
+              
+              const systemMessage = `[SYSTEM_CONTEXT] Here is some recent context about your ${targetRole}:\n${memoryContext}\nUse this context to be a better companion and relationship co-pilot.`;
+              
+              if (typeof (newConversation as any).sendUserMessage === 'function') {
+                (newConversation as any).sendUserMessage(systemMessage);
+              }
+            }
+          } catch (error) {
+            console.error('Failed to inject memory context:', error);
+          }
+
           // #region agent log
           fetch('http://127.0.0.1:7254/ingest/9783cea7-141f-45fd-bc2e-dc110810f23f',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H3',location:'ConversationContext.tsx:196',message:'conversation connected',data:{hasScreenContext:!!initialScreenContext,screenContextLength:initialScreenContext.length},timestamp:Date.now()})}).catch(()=>{});
           // #endregion agent log
@@ -310,6 +351,26 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
         console.log('Ending conversation...');
         setUserEndedCall(true);
         userEndedCallRef.current = true;
+        
+        // Extract memories before ending session if we have messages
+        if (messages.length > 2) {
+          const api = window.electronAPI;
+          const summary = await api.vision.summarizeConversation(
+            messages.map(m => ({ role: m.role, content: m.content }))
+          );
+          
+          if (summary && summary !== 'Nothing noteworthy.') {
+            const memoryLines = summary.split('\n').filter(line => line.trim().length > 0);
+            for (const line of memoryLines) {
+              await api.supabase.saveMemory({
+                userId: userRole,
+                content: line,
+                category: 'daily_update',
+              });
+            }
+          }
+        }
+
         await conversation.endSession();
         setConversation(null);
         setIsCallActive(false);
@@ -323,9 +384,10 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
     } else {
       console.log('No active conversation to end');
     }
-  }, [conversation, updateStatus]);
+  }, [conversation, messages, userRole, updateStatus]);
 
   const value: ConversationContextValue = {
+    userRole,
     conversation,
     isCallActive,
     messages,
@@ -333,6 +395,7 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
     statusText,
     screenViewPermissionGranted,
     currentScreenContext,
+    setUserRole,
     startConversation,
     endConversation,
     interruptAgent,

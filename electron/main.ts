@@ -40,6 +40,8 @@ console.log('Microphone permission:', getMicrophonePermissionStatus());
 import * as conversationalService from './services/conversational';
 import * as visionService from './services/vision';
 import * as elevenlabsService from './services/elevenlabs';
+import * as supabaseService from './services/supabase';
+import * as geminiService from './services/gemini';
 
 function createWindow(): void {
   const win = new BrowserWindow({
@@ -242,6 +244,23 @@ ipcMain.handle('tts:cancel', () => {
   console.log('IPC: tts:cancel called');
   elevenlabsService.cancelTTS();
   return { success: true };
+});
+
+// Supabase handlers
+ipcMain.handle('supabase:saveMemory', async (_, memory) => {
+  return await supabaseService.saveMemory(memory);
+});
+
+ipcMain.handle('supabase:getRecentMemories', async (_, userId, limit) => {
+  return await supabaseService.getRecentMemories(userId, limit);
+});
+
+ipcMain.handle('supabase:sendNudge', async (_, nudge) => {
+  return await supabaseService.sendNudge(nudge);
+});
+
+ipcMain.handle('gemini:summarize', async (_, messages) => {
+  return await geminiService.summarizeConversation(messages);
 });
 
 // ==================== APP LIFECYCLE ====================
