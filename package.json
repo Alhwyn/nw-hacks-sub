@@ -1,5 +1,5 @@
 {
-  "name": "granny",
+  "name": "GrandBuddy AI",
   "version": "1.0.0",
   "description": "Electron app built with TypeScript and Bun",
   "main": "dist-electron/main.js",
@@ -51,7 +51,7 @@
   },
   "build": {
     "appId": "com.yourname.granny",
-    "productName": "Granny",
+    "productName": "GrandBuddy AI",
     "directories": {
       "output": "release",
       "buildResources": "build"

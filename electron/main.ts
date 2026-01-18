@@ -49,14 +49,19 @@ import { startHighlightServer, stopHighlightServer } from './services/highlight'
 import { launchApplication, executeCommand } from './services/computer-agent';
 
 function createWindow(): void {
+  const display = screen.getPrimaryDisplay();
+  const { width, height, x, y } = display.workArea;
+    const WINDOW_WIDTH = 400;
+
   const win = new BrowserWindow({
-    width: 360,
-    height: 420,
+    width: WINDOW_WIDTH,
+    height: height,
+    x: x + width - WINDOW_WIDTH,
+    y: y,
     minWidth: 320,
     minHeight: 380,
-    maxWidth: 400,
-    maxHeight: 650,
-    resizable: true,
+    maxWidth: WINDOW_WIDTH,
+    resizable: false,
     alwaysOnTop: true, // Keep window always visible on top
     
     // Glassy/Transparent window settings
