@@ -1,6 +1,6 @@
 // Vision service for screen capture and analysis
 import { desktopCapturer } from 'electron';
-// Vision analysis disabled: OpenRouter removed per requirement
+import * as geminiService from './gemini';
 
 export interface ScreenContext {
   screenshot: string;
@@ -42,9 +42,16 @@ export async function captureAndDescribe(): Promise<ScreenContext> {
   try {
     const screenshot = await captureScreenshot();
     
-    const description =
-      'Screen capture succeeded, but vision analysis is disabled. Use the view_screen tool with ElevenLabs only or describe the screen manually.';
-    console.log('Screen description generated (vision disabled).');
+    const prompt = `Describe what you see on this screen in 2-3 sentences. 
+Focus on:
+- What applications or windows are open
+- The main content or task the user appears to be doing
+- Any notable UI elements or text that's visible
+
+Keep it concise and relevant for helping an elderly user.`;
+
+    const description = await geminiService.analyzeImage(screenshot, prompt);
+    console.log('Screen description generated:', description.substring(0, 100) + '...');
     
     return {
       screenshot,
@@ -68,10 +75,13 @@ export async function analyzeScreen(question?: string): Promise<string> {
   try {
     const screenshot = await captureScreenshot();
     
-    void screenshot;
-    const analysis =
-      'Screen analysis is disabled (OpenRouter removed). Use ElevenLabs tools only.';
-    console.log('Screen analysis disabled.');
+    const prompt = question 
+      ? `Looking at this screen: ${question}`
+      : `Describe what you see on this screen. Focus on applications, content, and any text or UI elements that would help understand what the user is looking at.`;
+
+    const analysis = await geminiService.analyzeImage(screenshot, prompt);
+    console.log('Screen analysis complete:', analysis.substring(0, 100) + '...');
+    
     return analysis;
   } catch (error) {
     console.error('analyzeScreen error:', error);
