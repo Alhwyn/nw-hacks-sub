@@ -8,6 +8,7 @@
     "build:electron": "tsc -p tsconfig.electron.json",
     "build:renderer": "vite build",
     "build": "bun run build:electron && bun run build:renderer",
+    "dist": "bun run build && electron-builder --mac",
     "start": "bun run build && electron .",
     "dev": "bun run build:electron && concurrently -k \"bun run watch:electron\" \"electron .\"",
     "dev:watch": "concurrently -k \"bun run watch:electron\" \"bun run watch:renderer\" \"bun run watch:app\"",
@@ -46,5 +47,34 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "robotjs": "^0.6.0"
+  },
+  "build": {
+    "appId": "com.yourname.granny",
+    "productName": "Granny",
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist-renderer/**/*",
+      "public/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    }
   }
 }

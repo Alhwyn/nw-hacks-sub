@@ -86,9 +86,7 @@ body {
   padding-top: 32px;
   position: relative;
   z-index: 1;
-  padding-bottom: 160px;
-  /* border: 3px solid red; /* DEBUG */ */
-
+  padding-bottom: 150px;
 }
 
 /* Main Chat Area - Compact */
@@ -101,9 +99,6 @@ body {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   gap: 1rem;
-  margin-bottom: 1rem;
-  /* border: 3px solid green; /* DEBUG */ */
-
 }
 
 /* Message Bubbles */
@@ -130,14 +125,14 @@ body {
 }
 
 .message-row.user .message-bubble {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-bottom-left-radius: 6px;
   margin-right: auto;
 }
 
 .message-row.agent .message-bubble {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgb(65, 115, 129);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom-right-radius: 6px;
   margin-left: auto;
@@ -251,6 +246,7 @@ body {
   align-items: center;
   z-index: 50;
   background-color: rgb(233 229 220);
+  height: 150px;
 }
 
 /* Ensure grouped button blocks center their contents */
@@ -361,17 +357,32 @@ body {
   color: var(--text);
 }
 
-.voice-btn .spinner-icon {
+/* Button wrapper for loading animation */
+.button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Spinning border when connecting */
+.button-wrapper.connecting::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65px;
+  height: 65px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--blue);
+  border-right-color: var(--blue);
   animation: spin 1s linear infinite;
 }
 
+
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* End Call Button */
