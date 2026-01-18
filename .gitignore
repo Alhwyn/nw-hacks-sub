@@ -5,6 +5,8 @@ node_modules
 out
 dist
 *.tgz
+dist-renderer/
+release/
 
 # code coverage
 coverage
@@ -14,6 +16,7 @@ coverage
 logs
 _.log
 report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+server/server.log
 
 # dotenv environment variable files
 .env
@@ -21,6 +24,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .env.test.local
 .env.production.local
 .env.local
+server/.venv
 
 # caches
 .eslintcache

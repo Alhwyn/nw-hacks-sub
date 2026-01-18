@@ -8,6 +8,7 @@
     "build:electron": "bun run tsc -p tsconfig.electron.json",
     "build:renderer": "vite build",
     "build": "bun run build:electron && bun run build:renderer",
+    "package:mac": "bun run build && bunx electron-builder --mac",
     "start": "bun run build && electron .",
     "dev": "bun run build:electron && concurrently -k \"bun run watch:electron\" \"electron .\"",
     "dev:watch": "concurrently -k \"bun run watch:electron\" \"bun run watch:renderer\" \"bun run watch:app\"",
@@ -15,6 +16,27 @@
     "watch:renderer": "vite",
     "watch:app": "sleep 2 && electron .",
     "clean": "rm -rf dist-electron dist-renderer"
+  },
+  "build": {
+    "appId": "com.odly.granny",
+    "productName": "Granny",
+    "files": [
+      "dist-electron/**/*",
+      "dist-renderer/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   },
   "devDependencies": {
     "@types/bun": "latest",
