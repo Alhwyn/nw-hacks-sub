@@ -6,8 +6,7 @@ import { config } from 'dotenv';
 config();
 
 // Import services
-import * as geminiService from './services/gemini';
-import * as elevenlabsService from './services/elevenlabs';
+import * as conversationalService from './services/conversational';
 
 function createWindow(): void {
   const win = new BrowserWindow({
@@ -31,11 +30,26 @@ function createWindow(): void {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
+      sandbox: false, // Required for AudioWorklet support in @11labs/client
+      webSecurity: false, // Required for AudioWorklet blob URLs in file:// protocol
+      enableBlinkFeatures: 'Autofill', // Suppress Autofill DevTools errors
     },
   });
 
   // Make window rounded corners (macOS)
   win.setWindowButtonVisibility?.(true);
+
+  // Set Content Security Policy to allow AudioWorklet (blob:) and WebSockets (wss:)
+  win.webContents.session.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'Content-Security-Policy': [
+          "default-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: wss: https:"
+        ]
+      }
+    });
+  });
 
   const isDev = !app.isPackaged;
 
@@ -49,31 +63,27 @@ function createWindow(): void {
 
 // ==================== IPC HANDLERS ====================
 
-// Chat handlers (Gemini)
-ipcMain.handle('chat:sendMessage', async (_event, message: string) => {
-  return await geminiService.sendMessage(message);
+// Conversational AI handlers
+ipcMain.handle('conversation:getSignedUrl', async () => {
+  console.log('IPC: conversation:getSignedUrl called');
+  try {
+    const url = await conversationalService.getSignedUrl();
+    console.log('IPC: Signed URL returned successfully');
+    return url;
+  } catch (error) {
+    console.error('IPC: Error getting signed URL:', error);
+    throw error;
+  }
 });
 
-ipcMain.handle('chat:clearHistory', async () => {
-  geminiService.clearChatHistory();
-  return { success: true };
+ipcMain.handle('conversation:getConfig', async () => {
+  console.log('IPC: conversation:getConfig called');
+  const config = conversationalService.getConversationConfig();
+  console.log('IPC: Config returned');
+  return config;
 });
 
-ipcMain.handle('chat:getHistory', async () => {
-  return geminiService.getChatHistory();
-});
-
-// TTS handlers (ElevenLabs)
-ipcMain.handle('tts:speak', async (_event, text: string, options?: elevenlabsService.TTSOptions) => {
-  const audioBuffer = await elevenlabsService.textToSpeech(text, options);
-  return audioBuffer.toString('base64');
-});
-
-ipcMain.handle('tts:getVoices', async () => {
-  return await elevenlabsService.getVoices();
-});
-
-// Screenshot handler
+// Screenshot handler (kept for potential future use)
 ipcMain.handle('screen:capture', async () => {
   const sources = await desktopCapturer.getSources({
     types: ['screen'],
