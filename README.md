@@ -1,10 +1,13 @@
-# Granny - Voice Assistant for Elderly Users
+# odly
 
-A real-time voice conversation app using ElevenLabs Conversational AI, built with Electron and Bun.
+Installing dependencies the legitimate way:
+```bash
+    # make sure your python versions are correct. I'd recommend using pyenv -> set python version to 3.12.9
+    pip install playwright
+    playwright install chromium # for unix users
+```
 
-## Setup
-
-### 1. Install dependencies
+To install dependencies (the noob way):
 
 ```bash
 bun install
