@@ -25,6 +25,7 @@
 h2 {
   font-family: "Inclusive Sans";
   font-size: 16px;
+  color: black;
 }
 html, body {
   font-family: 'Inclusive Sans';
@@ -37,72 +38,11 @@ html, body {
 
 /* Misty mountain landscape background */
 body {
-  background: 
-    /* Fog layers */
-    linear-gradient(180deg, 
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.05) 40%,
-      rgba(255, 255, 255, 0.15) 60%,
-      rgba(255, 255, 255, 0.08) 80%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    /* Mountain silhouettes - darkest back layer */
-    linear-gradient(175deg, 
-      transparent 0%,
-      transparent 55%,
-      rgba(40, 60, 50, 0.9) 55%,
-      rgba(40, 60, 50, 0.95) 100%
-    ),
-    /* Mid mountain layer */
-    linear-gradient(172deg, 
-      transparent 0%,
-      transparent 62%,
-      rgba(50, 75, 60, 0.85) 62%,
-      rgba(45, 70, 55, 0.9) 100%
-    ),
-    /* Front mountain/forest layer */
-    linear-gradient(168deg, 
-      transparent 0%,
-      transparent 70%,
-      rgba(35, 55, 40, 0.9) 70%,
-      rgba(30, 50, 35, 1) 100%
-    ),
-    /* Sky gradient - misty morning */
-    linear-gradient(180deg, 
-      #6b8e7a 0%,
-      #7a9988 10%,
-      #8ba898 25%,
-      #9db5a5 40%,
-      #b5c9bb 55%,
-      #c8d9ce 70%,
-      #d5e3da 85%,
-      #e0ebe5 100%
-    );
+  background: rgb(250, 249, 247);  
   background-size: 100% 100%;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
-/* Add animated fog effect */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(ellipse 120% 40% at 20% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 100% 35% at 80% 55%, rgba(255, 255, 255, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse 150% 50% at 50% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-  animation: fogDrift 20s ease-in-out infinite alternate;
-}
-
-@keyframes fogDrift {
-  0% { opacity: 0.7; transform: translateX(-2%); }
-  100% { opacity: 1; transform: translateX(2%); }
-}
 
 /* Titlebar */
 .titlebar {
@@ -147,7 +87,6 @@ body::before {
   position: relative;
   z-index: 1;
   padding-bottom: 160px;
-  border: 3px solid red; /* DEBUG */
 
 }
 
@@ -157,11 +96,10 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-self: self-end;
-  padding: 1.5rem;
   overflow-y: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   gap: 1rem;
-  margin-bottom: 1rem;
-  border: 3px solid green; /* DEBUG */
 
 }
 
@@ -303,13 +241,13 @@ body::before {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 1rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background: linear-gradient(to top, rgba(30, 50, 35, 0.9) 0%, transparent 100%);
   z-index: 50;
+  background-color: rgb(233 229 220);
 }
 
 /* Ensure grouped button blocks center their contents */
@@ -378,7 +316,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(43 150 171);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -386,8 +324,7 @@ body::before {
   transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.2),
-    0 4px 16px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 16px rgba(0, 0, 0, 0.15);
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -395,12 +332,11 @@ body::before {
 }
 
 .voice-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(75 155 171);
   transform: scale(1.05);
   box-shadow: 
     0 12px 40px rgba(0, 0, 0, 0.25),
-    0 6px 20px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .voice-btn:active {
