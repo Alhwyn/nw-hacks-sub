@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Titlebar: React.FC = () => {
   return (
-    <div className="titlebar">
+    <div className="titlebar bg-red">
       <span className="titlebar-title">Granny</span>
     </div>
   );

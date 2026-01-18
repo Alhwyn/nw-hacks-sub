@@ -4,10 +4,6 @@
         "label": "Skip to content [LINK]",
         "value": "Skip to content",
         "tagName": "A",
-        "coord": {
-            "x": -9972,
-            "y": -9950
-        },
         "rect": {
             "x": -10000,
             "y": -9980,
@@ -21,10 +17,6 @@
         "label": "Using Gmail with screen readers [LINK]",
         "value": "Using Gmail with screen readers",
         "tagName": "A",
-        "coord": {
-            "x": -9972,
-            "y": -9870
-        },
         "rect": {
             "x": -10000,
             "y": -9920,
@@ -38,10 +30,6 @@
         "label": "Gmail [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": -208,
-            "y": 34
-        },
         "rect": {
             "x": -256.005859375,
             "y": 21.9921875,
@@ -55,10 +43,6 @@
         "label": "Main menu [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 34,
-            "y": 32
-        },
         "rect": {
             "x": 9.990234375,
             "y": 8.0078125,
@@ -72,10 +56,6 @@
         "label": "Gmail [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 133,
-            "y": 34
-        },
         "rect": {
             "x": 67.96875,
             "y": 11.9921875,
@@ -89,10 +69,6 @@
         "label": "Search mail [INPUT]",
         "value": "",
         "tagName": "INPUT",
-        "coord": {
-            "x": 663,
-            "y": 32
-        },
         "rect": {
             "x": 378.994140625,
             "y": 21.9921875,
@@ -106,10 +82,6 @@
         "label": "unlabeled [INPUT]",
         "value": "",
         "tagName": "INPUT",
-        "coord": {
-            "x": 663,
-            "y": 32
-        },
         "rect": {
             "x": 378.994140625,
             "y": 21.9921875,
@@ -123,10 +95,6 @@
         "label": "Advanced search options [BUTTON]",
         "value": "",
         "tagName": "BUTTON",
-        "coord": {
-            "x": 1016,
-            "y": 31
-        },
         "rect": {
             "x": 988.0078125,
             "y": 7.998046875,
@@ -140,10 +108,6 @@
         "label": "Clear search [BUTTON]",
         "value": "",
         "tagName": "BUTTON",
-        "coord": {
-            "x": 972,
-            "y": 31
-        },
         "rect": {
             "x": 944.013671875,
             "y": 7.998046875,
@@ -157,10 +121,6 @@
         "label": "Search mail [BUTTON]",
         "value": "",
         "tagName": "BUTTON",
-        "coord": {
-            "x": 352,
-            "y": 31
-        },
         "rect": {
             "x": 323.994140625,
             "y": 7.998046875,
@@ -174,10 +134,6 @@
         "label": "Status: Active [BUTTON]",
         "value": "Active",
         "tagName": "DIV",
-        "coord": {
-            "x": 1286,
-            "y": 32
-        },
         "rect": {
             "x": 1235.703125,
             "y": 7.998046875,
@@ -191,10 +147,6 @@
         "label": "Support [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 1370,
-            "y": 32
-        },
         "rect": {
             "x": 1350.078125,
             "y": 12.001953125,
@@ -208,10 +160,6 @@
         "label": "Settings [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 1414,
-            "y": 32
-        },
         "rect": {
             "x": 1394.052734375,
             "y": 12.001953125,
@@ -225,10 +173,6 @@
         "label": "Ask Gemini [BUTTON]",
         "value": "",
         "tagName": "BUTTON",
-        "coord": {
-            "x": 1456,
-            "y": 32
-        },
         "rect": {
             "x": 1436.03515625,
             "y": 11.9921875,
@@ -242,10 +186,6 @@
         "label": "Google apps [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 1498,
-            "y": 32
-        },
         "rect": {
             "x": 1478.02734375,
             "y": 11.9921875,
@@ -259,10 +199,6 @@
         "label": "Google Account: Aaron Rhim   (rhimaaron@gmail.com) [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 1546,
-            "y": 32
-        },
         "rect": {
             "x": 1526.015625,
             "y": 11.9921875,
@@ -273,13 +209,9 @@
     },
     {
         "element_id": 28,
-        "label": "Mail, 3 unread messages [LINK]",
-        "value": "3",
+        "label": "Mail, 2 unread messages [LINK]",
+        "value": "2",
         "tagName": "DIV",
-        "coord": {
-            "x": 34,
-            "y": 97
-        },
         "rect": {
             "x": 11.9921875,
             "y": 81.9921875,
@@ -293,10 +225,6 @@
         "label": "Chat, 0 unread messages [LINK]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 34,
-            "y": 161
-        },
         "rect": {
             "x": 11.9921875,
             "y": 145.9765625,
@@ -310,10 +238,6 @@
         "label": "Meet [LINK]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 34,
-            "y": 225
-        },
         "rect": {
             "x": 11.9921875,
             "y": 209.9609375,
@@ -327,10 +251,6 @@
         "label": "Compose [BUTTON]",
         "value": "Compose",
         "tagName": "DIV",
-        "coord": {
-            "x": 149,
-            "y": 100
-        },
         "rect": {
             "x": 79.990234375,
             "y": 71.9921875,
@@ -341,13 +261,9 @@
     },
     {
         "element_id": 33,
-        "label": "Inbox 3 unread [LINK]",
+        "label": "Inbox 2 unread [LINK]",
         "value": "Inbox",
         "tagName": "A",
-        "coord": {
-            "x": 151,
-            "y": 161
-        },
         "rect": {
             "x": 131.982421875,
             "y": 151.85546875,
@@ -361,10 +277,6 @@
         "label": "Starred [LINK]",
         "value": "Starred",
         "tagName": "A",
-        "coord": {
-            "x": 155,
-            "y": 193
-        },
         "rect": {
             "x": 131.982421875,
             "y": 183.84765625,
@@ -378,10 +290,6 @@
         "label": "Snoozed [LINK]",
         "value": "Snoozed",
         "tagName": "A",
-        "coord": {
-            "x": 159,
-            "y": 225
-        },
         "rect": {
             "x": 131.982421875,
             "y": 215.83984375,
@@ -395,10 +303,6 @@
         "label": "Sent [LINK]",
         "value": "Sent",
         "tagName": "A",
-        "coord": {
-            "x": 146,
-            "y": 257
-        },
         "rect": {
             "x": 131.982421875,
             "y": 247.83203125,
@@ -412,10 +316,6 @@
         "label": "Purchases 151 unread has menu [LINK]",
         "value": "Purchases",
         "tagName": "A",
-        "coord": {
-            "x": 167,
-            "y": 289
-        },
         "rect": {
             "x": 131.982421875,
             "y": 279.82421875,
@@ -429,10 +329,6 @@
         "label": "More labels [BUTTON]",
         "value": "More",
         "tagName": "SPAN",
-        "coord": {
-            "x": 196,
-            "y": 321
-        },
         "rect": {
             "x": 79.990234375,
             "y": 304.5703125,
@@ -446,10 +342,6 @@
         "label": "Create new label [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 295,
-            "y": 375
-        },
         "rect": {
             "x": 284.501953125,
             "y": 364.560546875,
@@ -463,10 +355,6 @@
         "label": "GitHub has menu [LINK]",
         "value": "GitHub",
         "tagName": "A",
-        "coord": {
-            "x": 154,
-            "y": 413
-        },
         "rect": {
             "x": 131.982421875,
             "y": 403.798828125,
@@ -480,10 +368,6 @@
         "label": "Passwords has menu [LINK]",
         "value": "Passwords",
         "tagName": "A",
-        "coord": {
-            "x": 166,
-            "y": 445
-        },
         "rect": {
             "x": 131.982421875,
             "y": 435.791015625,
@@ -497,10 +381,6 @@
         "label": "More labels [BUTTON]",
         "value": "More",
         "tagName": "SPAN",
-        "coord": {
-            "x": 196,
-            "y": 477
-        },
         "rect": {
             "x": 79.990234375,
             "y": 460.537109375,
@@ -510,14 +390,10 @@
         "isVisible": true
     },
     {
-        "element_id": 62,
+        "element_id": 43,
         "label": "Select [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 360,
-            "y": 88
-        },
         "rect": {
             "x": 339.990234375,
             "y": 77.98828125,
@@ -527,14 +403,10 @@
         "isVisible": true
     },
     {
-        "element_id": 69,
+        "element_id": 50,
         "label": "Refresh [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 410,
-            "y": 88
-        },
         "rect": {
             "x": 399.98046875,
             "y": 77.98828125,
@@ -544,14 +416,10 @@
         "isVisible": true
     },
     {
-        "element_id": 70,
+        "element_id": 51,
         "label": "More email options [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 450,
-            "y": 88
-        },
         "rect": {
             "x": 439.970703125,
             "y": 77.98828125,
@@ -561,14 +429,10 @@
         "isVisible": true
     },
     {
-        "element_id": 71,
+        "element_id": 52,
         "label": "Show more messages [BUTTON]",
         "value": "1\u201350 of 4,451",
         "tagName": "DIV",
-        "coord": {
-            "x": 1320,
-            "y": 88
-        },
         "rect": {
             "x": 1275.2734375,
             "y": 69.990234375,
@@ -578,14 +442,10 @@
         "isVisible": true
     },
     {
-        "element_id": 72,
+        "element_id": 53,
         "label": "Newer [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 1386,
-            "y": 88
-        },
         "rect": {
             "x": 1376.015625,
             "y": 77.98828125,
@@ -595,14 +455,10 @@
         "isVisible": true
     },
     {
-        "element_id": 73,
+        "element_id": 54,
         "label": "Older [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 1426,
-            "y": 88
-        },
         "rect": {
             "x": 1416.015625,
             "y": 77.98828125,
@@ -612,14 +468,10 @@
         "isVisible": true
     },
     {
-        "element_id": 74,
+        "element_id": 55,
         "label": "Input tools on/off (Ctrl-Shift-K) [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 1462,
-            "y": 88
-        },
         "rect": {
             "x": 1452.01171875,
             "y": 77.98828125,
@@ -629,14 +481,10 @@
         "isVisible": true
     },
     {
-        "element_id": 75,
+        "element_id": 56,
         "label": "Select input tool [LINK]",
         "value": "",
         "tagName": "A",
-        "coord": {
-            "x": 1482,
-            "y": 88
-        },
         "rect": {
             "x": 1472.01171875,
             "y": 77.98828125,
@@ -646,272 +494,442 @@
         "isVisible": true
     },
     {
-        "element_id": 80,
+        "element_id": 61,
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 188
-        },
         "rect": {
             "x": 369.990234375,
             "y": 177.98828125,
             "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 62,
+        "label": "CPSC 304 Project \u00a0-\u00a0 Hey Samuel, I hope you're doi [LINK]",
+        "value": "CPSC 304 Project\n\u00a0-\u00a0\nHey Samuel, I hope you're doi",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 177.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 63,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 217.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 64,
+        "label": "Your Supabase Project website is going to be pause [LINK]",
+        "value": "Your Supabase Project website is going to be pause",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 217.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 65,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 257.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 66,
+        "label": "(no subject) \u00a0-\u00a0 This is a test email sent by an a [LINK]",
+        "value": "(no subject)\n\u00a0-\u00a0\nThis is a test email sent by an a",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 257.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 67,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 297.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 68,
+        "label": "(no subject) \u00a0-\u00a0 This is a test email sent by an a [LINK]",
+        "value": "(no subject)\n\u00a0-\u00a0\nThis is a test email sent by an a",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 297.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 69,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 337.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 70,
+        "label": "Your API usage limits have increased \u00a0-\u00a0 Review yo [LINK]",
+        "value": "Your API usage limits have increased\n\u00a0-\u00a0\nReview yo",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 337.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 71,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 377.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 72,
+        "label": "Your OpenAI API account has been funded \u00a0-\u00a0 Hi the [LINK]",
+        "value": "Your OpenAI API account has been funded\n\u00a0-\u00a0\nHi the",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 377.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 73,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 417.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 74,
+        "label": "Nikita's Friend \u00a0-\u00a0 Hey guys! I'm happy to be of h [LINK]",
+        "value": "Nikita's Friend\n\u00a0-\u00a0\nHey guys! I'm happy to be of h",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 417.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 75,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 457.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 76,
+        "label": "Document shared with you: \"Grandma nwHacks 2026\" \u00a0 [LINK]",
+        "value": "Document shared with you: \"Grandma nwHacks 2026\"",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 457.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 77,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 497.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 78,
+        "label": "Alhwyn invited you to Alhwyn/nw-hacks-sub \u00a0-\u00a0 @Alh [LINK]",
+        "value": "Alhwyn invited you to Alhwyn/nw-hacks-sub\n\u00a0-\u00a0\n@Alh",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 497.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 79,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 537.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 80,
+        "label": "CPSC 304 Partnership \u00a0-\u00a0 One more person did reach [LINK]",
+        "value": "CPSC 304 Partnership\n\u00a0-\u00a0\nOne more person did reach",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 537.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 81,
-        "label": "CPSC 304 Project \u00a0-\u00a0 Hey Samuel, I hope you're doi [LINK]",
-        "value": "CPSC 304 Project\n\u00a0-\u00a0\nHey Samuel, I hope you're doi",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 188
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 177.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 577.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 82,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 228
-        },
+        "label": "CPSC 304 Project \u00a0-\u00a0 Sure that sounds good. What p [LINK]",
+        "value": "CPSC 304 Project\n\u00a0-\u00a0\nSure that sounds good. What p",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 217.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 577.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 83,
-        "label": "Your Supabase Project website is going to be pause [LINK]",
-        "value": "Your Supabase Project website is going to be pause",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 228
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 217.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 617.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 84,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 268
-        },
+        "label": "New sign-in detected on your Vercel account \u00a0-\u00a0 Hi [LINK]",
+        "value": "New sign-in detected on your Vercel account\n\u00a0-\u00a0\nHi",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 257.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 617.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 85,
-        "label": "(no subject) \u00a0-\u00a0 This is a test email sent by an a [LINK]",
-        "value": "(no subject)\n\u00a0-\u00a0\nThis is a test email sent by an a",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 268
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 257.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 657.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 86,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 308
-        },
+        "label": "(no subject) [LINK]",
+        "value": "(no subject)",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 297.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 657.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 87,
-        "label": "(no subject) \u00a0-\u00a0 This is a test email sent by an a [LINK]",
-        "value": "(no subject)\n\u00a0-\u00a0\nThis is a test email sent by an a",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 308
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 297.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 697.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 88,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 348
-        },
+        "label": "Waitlisted Section - CPSC_V 320-203 - Intermediate [LINK]",
+        "value": "Waitlisted Section - CPSC_V 320-203 - Intermediate",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 337.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 697.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 89,
-        "label": "Your API usage limits have increased \u00a0-\u00a0 Review yo [LINK]",
-        "value": "Your API usage limits have increased\n\u00a0-\u00a0\nReview yo",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 348
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 337.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 737.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 90,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 388
-        },
+        "label": "Waitlisted Section - CPSC_V 320-201 - Intermediate [LINK]",
+        "value": "Waitlisted Section - CPSC_V 320-201 - Intermediate",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 377.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 737.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 91,
-        "label": "Your OpenAI API account has been funded \u00a0-\u00a0 Hi the [LINK]",
-        "value": "Your OpenAI API account has been funded\n\u00a0-\u00a0\nHi the",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 388
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 377.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 777.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 92,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 428
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 417.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 93,
-        "label": "Nikita's Friend \u00a0-\u00a0 Hey guys! I'm happy to be of h [LINK]",
-        "value": "Nikita's Friend\n\u00a0-\u00a0\nHey guys! I'm happy to be of h",
+        "label": "UBC Science Co-op - Friday's Session Follow-Up \u00a0-\u00a0 [LINK]",
+        "value": "UBC Science Co-op - Friday's Session Follow-Up\n\u00a0-",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 428
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 417.98828125,
+            "y": 777.98828125,
             "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 94,
+        "element_id": 93,
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 468
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 457.98828125,
+            "y": 817.98828125,
             "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 95,
-        "label": "Document shared with you: \"Grandma nwHacks 2026\" \u00a0 [LINK]",
-        "value": "Document shared with you: \"Grandma nwHacks 2026\"",
+        "element_id": 94,
+        "label": "Zack Ellington made updates in Connections \u00a0-\u00a0 See [LINK]",
+        "value": "Zack Ellington made updates in Connections\n\u00a0-\u00a0\nSee",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 468
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 457.98828125,
+            "y": 817.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -922,13 +940,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 508
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 497.98828125,
+            "y": 857.98828125,
             "w": 20,
             "h": 20
         },
@@ -936,16 +950,12 @@
     },
     {
         "element_id": 97,
-        "label": "Alhwyn invited you to Alhwyn/nw-hacks-sub \u00a0-\u00a0 GitH [LINK]",
-        "value": "Alhwyn invited you to Alhwyn/nw-hacks-sub\n\u00a0-\u00a0\nGitH",
+        "label": "CPSC 304 group \u00a0-\u00a0 Hey, I'm Adil. I saw your post  [LINK]",
+        "value": "CPSC 304 group\n\u00a0-\u00a0\nHey, I'm Adil. I saw your post",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 508
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 497.98828125,
+            "y": 857.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -956,13 +966,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 548
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 537.98828125,
+            "y": 897.98828125,
             "w": 20,
             "h": 20
         },
@@ -970,16 +976,12 @@
     },
     {
         "element_id": 99,
-        "label": "CPSC 304 Partnership \u00a0-\u00a0 One more person did reach [LINK]",
-        "value": "CPSC 304 Partnership\n\u00a0-\u00a0\nOne more person did reach",
+        "label": "Response to Project Team Post in CPSC_V 304 201/20 [LINK]",
+        "value": "Response to Project Team Post in CPSC_V 304 201/20",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 548
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 537.98828125,
+            "y": 897.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -987,16 +989,12 @@
     },
     {
         "element_id": 100,
-        "label": "Not starred [BUTTON]",
+        "label": "Starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 588
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 577.98828125,
+            "y": 937.98828125,
             "w": 20,
             "h": 20
         },
@@ -1004,322 +1002,246 @@
     },
     {
         "element_id": 101,
-        "label": "CPSC 304 Project \u00a0-\u00a0 Sure that sounds good. What p [LINK]",
-        "value": "CPSC 304 Project\n\u00a0-\u00a0\nSure that sounds good. What p",
+        "label": "Systems Engineer (Lab Infrastructure) at INSPYR So [LINK]",
+        "value": "Systems Engineer (Lab Infrastructure) at INSPYR So",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 588
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 577.98828125,
+            "y": 937.98828125,
             "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 102,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 628
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 617.98828125,
-            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 103,
-        "label": "New sign-in detected on your Vercel account \u00a0-\u00a0 Hi [LINK]",
-        "value": "New sign-in detected on your Vercel account\n\u00a0-\u00a0\nHi",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 628
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 617.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 977.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 104,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 668
-        },
+        "label": "Registration add/drop deadline and immigration imp [LINK]",
+        "value": "Registration add/drop deadline and immigration imp",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 657.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 977.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 105,
-        "label": "(no subject) [LINK]",
-        "value": "(no subject)",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 668
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 657.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1017.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 106,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 708
-        },
+        "label": "SCOPE Q&amp;A Sessions - Jan 19 &amp; 22 - Registe [LINK]",
+        "value": "SCOPE Q&amp;A Sessions - Jan 19 &amp; 22 - Registe",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 697.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1017.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 107,
-        "label": "Waitlisted Section - CPSC_V 320-203 - Intermediate [LINK]",
-        "value": "Waitlisted Section - CPSC_V 320-203 - Intermediate",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 708
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 697.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1057.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 108,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 748
-        },
+        "label": "Congratulations with uploading your first document [LINK]",
+        "value": "Congratulations with uploading your first document",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 737.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1057.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 109,
-        "label": "Waitlisted Section - CPSC_V 320-201 - Intermediate [LINK]",
-        "value": "Waitlisted Section - CPSC_V 320-201 - Intermediate",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 748
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 737.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1097.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 110,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 788
-        },
+        "label": "Thanh Rhim has been added to your Savor Credit Car [LINK]",
+        "value": "Thanh Rhim has been added to your Savor Credit Car",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 777.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1097.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 111,
-        "label": "UBC Science Co-op - Friday's Session Follow-Up \u00a0-\u00a0 [LINK]",
-        "value": "UBC Science Co-op - Friday's Session Follow-Up\n\u00a0-",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 788
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 777.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1137.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 112,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 828
-        },
+        "label": "Thanks for your order \u00a0-\u00a0 Here's your receipt for  [LINK]",
+        "value": "Thanks for your order\n\u00a0-\u00a0\nHere's your receipt for",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 817.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1137.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 113,
-        "label": "Zack Ellington made updates in Connections \u00a0-\u00a0 See [LINK]",
-        "value": "Zack Ellington made updates in Connections\n\u00a0-\u00a0\nSee",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 828
-        },
+        "element_id": 114,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 817.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1177.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 115,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 868
-        },
+        "label": "Thank you for your interest in Samsara \u00a0-\u00a0 Hi Aaro [LINK]",
+        "value": "Thank you for your interest in Samsara\n\u00a0-\u00a0\nHi Aaro",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 857.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1177.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 116,
-        "label": "CPSC 304 group \u00a0-\u00a0 Hey, I'm Adil. I saw your post  [LINK]",
-        "value": "CPSC 304 group\n\u00a0-\u00a0\nHey, I'm Adil. I saw your post",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 868
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 857.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1217.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 117,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 908
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 897.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 118,
-        "label": "Response to Project Team Post in CPSC_V 304 201/20 [LINK]",
-        "value": "Response to Project Team Post in CPSC_V 304 201/20",
+        "label": "US Student Loans \u2013 IMPORTANT Eligibility Informati [LINK]",
+        "value": "US Student Loans \u2013 IMPORTANT Eligibility Informati",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 908
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 897.98828125,
+            "y": 1217.98828125,
             "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 119,
-        "label": "Starred [BUTTON]",
+        "element_id": 118,
+        "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 948
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 937.98828125,
+            "y": 1257.98828125,
             "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 120,
-        "label": "Systems Engineer (Lab Infrastructure) at INSPYR So [LINK]",
-        "value": "Systems Engineer (Lab Infrastructure) at INSPYR So",
+        "element_id": 119,
+        "label": "From Tara: Important dates & deadlines for term 2  [LINK]",
+        "value": "From Tara: Important dates & deadlines for term 2",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 948
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 937.98828125,
+            "y": 1257.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 120,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 1297.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 121,
+        "label": "Verafin - Software Development Student (May 2026)  [LINK]",
+        "value": "Verafin - Software Development Student (May 2026)",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 1297.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -1330,13 +1252,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 988
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 977.98828125,
+            "y": 1337.98828125,
             "w": 20,
             "h": 20
         },
@@ -1344,16 +1262,12 @@
     },
     {
         "element_id": 123,
-        "label": "Registration add/drop deadline and immigration imp [LINK]",
-        "value": "Registration add/drop deadline and immigration imp",
+        "label": "New in CPSC_V 210: Final Exam Reviews \u00a0-\u00a0 Final Ex [LINK]",
+        "value": "New in CPSC_V 210: Final Exam Reviews\n\u00a0-\u00a0\nFinal Ex",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 988
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 977.98828125,
+            "y": 1337.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -1364,13 +1278,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1028
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1017.98828125,
+            "y": 1377.98828125,
             "w": 20,
             "h": 20
         },
@@ -1378,322 +1288,246 @@
     },
     {
         "element_id": 125,
-        "label": "SCOPE Q&amp;A Sessions - Jan 19 &amp; 22 - Registe [LINK]",
-        "value": "SCOPE Q&amp;A Sessions - Jan 19 &amp; 22 - Registe",
+        "label": "Zack Ellington made updates in Connections \u00a0-\u00a0 See [LINK]",
+        "value": "Zack Ellington made updates in Connections\n\u00a0-\u00a0\nSee",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1028
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1017.98828125,
+            "y": 1377.98828125,
             "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 126,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1068
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1057.98828125,
-            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 127,
-        "label": "Congratulations with uploading your first document [LINK]",
-        "value": "Congratulations with uploading your first document",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1068
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1057.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1417.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 128,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1108
-        },
+        "label": "[Action Required] Stock Pitch Competition Prize Pa [LINK]",
+        "value": "[Action Required] Stock Pitch Competition Prize Pa",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1097.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1417.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 129,
-        "label": "Thanh Rhim has been added to your Savor Credit Car [LINK]",
-        "value": "Thanh Rhim has been added to your Savor Credit Car",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1108
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1097.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1457.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 130,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1148
-        },
+        "label": "Zack Ellington mentioned you in Landing Page makeo [LINK]",
+        "value": "Zack Ellington mentioned you in Landing Page makeo",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1137.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1457.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 131,
-        "label": "Thanks for your order \u00a0-\u00a0 Here's your receipt for  [LINK]",
-        "value": "Thanks for your order\n\u00a0-\u00a0\nHere's your receipt for",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1148
-        },
+        "element_id": 132,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1137.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1497.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 133,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1188
-        },
+        "label": "Update on Your Application for Intern, Electrical  [LINK]",
+        "value": "Update on Your Application for Intern, Electrical",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1177.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1497.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 134,
-        "label": "Thank you for your interest in Samsara \u00a0-\u00a0 Hi Aaro [LINK]",
-        "value": "Thank you for your interest in Samsara\n\u00a0-\u00a0\nHi Aaro",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1188
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1177.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1537.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 135,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1228
-        },
+        "label": "Your AWS account 246412345468 has been restricted  [LINK]",
+        "value": "Your AWS account 246412345468 has been restricted",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1217.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1537.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 136,
-        "label": "US Student Loans \u2013 IMPORTANT Eligibility Informati [LINK]",
-        "value": "US Student Loans \u2013 IMPORTANT Eligibility Informati",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1228
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1217.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1577.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 137,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1268
-        },
+        "label": "Re:TRY FREE \u201dSTARLINK\u201d JUST FOR YOU \u00a0-\u00a0 You're Inv [LINK]",
+        "value": "Re:TRY FREE \u201dSTARLINK\u201d JUST FOR YOU\n\u00a0-\u00a0\nYou're Inv",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1257.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1577.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 138,
-        "label": "From Tara: Important dates & deadlines for term 2  [LINK]",
-        "value": "From Tara: Important dates & deadlines for term 2",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1268
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1257.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1617.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 139,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1308
-        },
+        "label": "You've been added to the \"CPSC304\" team \"CPSC 304  [LINK]",
+        "value": "You've been added to the \"CPSC304\" team \"CPSC 304",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1297.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 1617.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 140,
-        "label": "Verafin - Software Development Student (May 2026)  [LINK]",
-        "value": "Verafin - Software Development Student (May 2026)",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1308
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1297.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 1657.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 141,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1348
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1337.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 142,
-        "label": "New in CPSC_V 210: Final Exam Reviews \u00a0-\u00a0 Final Ex [LINK]",
-        "value": "New in CPSC_V 210: Final Exam Reviews\n\u00a0-\u00a0\nFinal Ex",
+        "label": "RE: Request for Registration Assistance \u00a0-\u00a0 Dear A [LINK]",
+        "value": "RE: Request for Registration Assistance\n\u00a0-\u00a0\nDear A",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1348
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1337.98828125,
+            "y": 1657.98828125,
             "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 143,
+        "element_id": 142,
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1388
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1377.98828125,
+            "y": 1697.98828125,
             "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 144,
-        "label": "Zack Ellington made updates in Connections \u00a0-\u00a0 See [LINK]",
-        "value": "Zack Ellington made updates in Connections\n\u00a0-\u00a0\nSee",
+        "element_id": 143,
+        "label": "Thank you from NVIDIA \u00a0-\u00a0 Dear Aaron Rhim - Thank  [LINK]",
+        "value": "Thank you from NVIDIA\n\u00a0-\u00a0\nDear Aaron Rhim - Thank",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1388
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1377.98828125,
+            "y": 1697.98828125,
+            "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 144,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 1737.98828125,
+            "w": 20,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 145,
+        "label": "[Important] Additional Hacker Information for nwHa [LINK]",
+        "value": "[Important] Additional Hacker Information for nwHa",
+        "tagName": "DIV",
+        "rect": {
+            "x": 629.98046875,
+            "y": 1737.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -1704,13 +1538,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1428
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1417.98828125,
+            "y": 1777.98828125,
             "w": 20,
             "h": 20
         },
@@ -1718,16 +1548,12 @@
     },
     {
         "element_id": 147,
-        "label": "[Action Required] Stock Pitch Competition Prize Pa [LINK]",
-        "value": "[Action Required] Stock Pitch Competition Prize Pa",
+        "label": "PSYC 101, 009 NOTETAKER JOB \u00a0-\u00a0 Hello, The Centre  [LINK]",
+        "value": "PSYC 101, 009 NOTETAKER JOB\n\u00a0-\u00a0\nHello, The Centre",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1428
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1417.98828125,
+            "y": 1777.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -1738,13 +1564,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1468
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1457.98828125,
+            "y": 1817.98828125,
             "w": 20,
             "h": 20
         },
@@ -1752,84 +1574,64 @@
     },
     {
         "element_id": 149,
-        "label": "Zack Ellington mentioned you in Landing Page makeo [LINK]",
-        "value": "Zack Ellington mentioned you in Landing Page makeo",
+        "label": "Request for Advising Webform \u00a0-\u00a0 This is confirmat [LINK]",
+        "value": "Request for Advising Webform\n\u00a0-\u00a0\nThis is confirmat",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1468
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1457.98828125,
+            "y": 1817.98828125,
             "w": 768.408203125,
+            "h": 20
+        },
+        "isVisible": true
+    },
+    {
+        "element_id": 150,
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
+        "rect": {
+            "x": 369.990234375,
+            "y": 1857.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 151,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1508
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1497.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 152,
-        "label": "Update on Your Application for Intern, Electrical  [LINK]",
-        "value": "Update on Your Application for Intern, Electrical",
+        "label": "Program requirements urgent \u00a0-\u00a0 Yup, I'm in thank  [LINK]",
+        "value": "Program requirements urgent\n\u00a0-\u00a0\nYup, I'm in thank",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1508
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1497.98828125,
+            "y": 1857.98828125,
             "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 153,
+        "element_id": 152,
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1548
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1537.98828125,
+            "y": 1897.98828125,
             "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
-        "element_id": 154,
-        "label": "Your AWS account 246412345468 has been restricted  [LINK]",
-        "value": "Your AWS account 246412345468 has been restricted",
+        "element_id": 153,
+        "label": "For you in Connections: CRM Tracker \u00a0-\u00a0 Trending a [LINK]",
+        "value": "For you in Connections: CRM Tracker\n\u00a0-\u00a0\nTrending a",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1548
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1537.98828125,
+            "y": 1897.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -1840,13 +1642,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1588
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1577.98828125,
+            "y": 1937.98828125,
             "w": 20,
             "h": 20
         },
@@ -1854,16 +1652,12 @@
     },
     {
         "element_id": 156,
-        "label": "Re:TRY FREE \u201dSTARLINK\u201d JUST FOR YOU \u00a0-\u00a0 You're Inv [LINK]",
-        "value": "Re:TRY FREE \u201dSTARLINK\u201d JUST FOR YOU\n\u00a0-\u00a0\nYou're Inv",
+        "label": "Your Application for Software Engineer Intern with [LINK]",
+        "value": "Your Application for Software Engineer Intern with",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1588
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1577.98828125,
+            "y": 1937.98828125,
             "w": 768.408203125,
             "h": 20
         },
@@ -1874,13 +1668,9 @@
         "label": "Not starred [BUTTON]",
         "value": "",
         "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1628
-        },
         "rect": {
             "x": 369.990234375,
-            "y": 1617.98828125,
+            "y": 1977.98828125,
             "w": 20,
             "h": 20
         },
@@ -1888,472 +1678,126 @@
     },
     {
         "element_id": 158,
-        "label": "You've been added to the \"CPSC304\" team \"CPSC 304  [LINK]",
-        "value": "You've been added to the \"CPSC304\" team \"CPSC 304",
+        "label": "Research Engineer at Ursus, Inc. in Redmond, WA an [LINK]",
+        "value": "Research Engineer at Ursus, Inc. in Redmond, WA an",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1628
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1617.98828125,
+            "y": 1977.98828125,
             "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 159,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1668
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1657.98828125,
-            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 160,
-        "label": "RE: Request for Registration Assistance \u00a0-\u00a0 Dear A [LINK]",
-        "value": "RE: Request for Registration Assistance\n\u00a0-\u00a0\nDear A",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1668
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1657.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 2017.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 161,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1708
-        },
+        "label": "Aaron | An update from Block \u00a0-\u00a0 Hi Aaron, Thank y [LINK]",
+        "value": "Aaron | An update from Block\n\u00a0-\u00a0\nHi Aaron, Thank y",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1697.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 2017.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 162,
-        "label": "Thank you from NVIDIA \u00a0-\u00a0 Dear Aaron Rhim - Thank  [LINK]",
-        "value": "Thank you from NVIDIA\n\u00a0-\u00a0\nDear Aaron Rhim - Thank",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1708
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1697.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 2057.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 163,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1748
-        },
+        "label": "Order Confirmation (#983705) \u00a0-\u00a0 ---------- Forwar [LINK]",
+        "value": "Order Confirmation (#983705)\n\u00a0-\u00a0\n---------- Forwar",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1737.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 2057.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 164,
-        "label": "[Important] Additional Hacker Information for nwHa [LINK]",
-        "value": "[Important] Additional Hacker Information for nwHa",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1748
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1737.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 2097.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 165,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1788
-        },
+        "label": "City of Richmond Cover Letter (1) \u00a0-\u00a0 Behold [LINK]",
+        "value": "City of Richmond Cover Letter (1)\n\u00a0-\u00a0\nBehold",
+        "tagName": "DIV",
         "rect": {
-            "x": 369.990234375,
-            "y": 1777.98828125,
-            "w": 20,
+            "x": 629.98046875,
+            "y": 2097.98828125,
+            "w": 768.408203125,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 166,
-        "label": "PSYC 101, 009 NOTETAKER JOB \u00a0-\u00a0 Hello, The Centre  [LINK]",
-        "value": "PSYC 101, 009 NOTETAKER JOB\n\u00a0-\u00a0\nHello, The Centre",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1788
-        },
+        "label": "Not starred [BUTTON]",
+        "value": "",
+        "tagName": "SPAN",
         "rect": {
-            "x": 629.98046875,
-            "y": 1777.98828125,
-            "w": 768.408203125,
+            "x": 369.990234375,
+            "y": 2137.98828125,
+            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 167,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1828
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1817.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 168,
-        "label": "Request for Advising Webform \u00a0-\u00a0 This is confirmat [LINK]",
-        "value": "Request for Advising Webform\n\u00a0-\u00a0\nThis is confirmat",
+        "label": "Clerkie Software Engineer Internship (4 openings)  [LINK]",
+        "value": "Clerkie Software Engineer Internship (4 openings)",
         "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1828
-        },
         "rect": {
             "x": 629.98046875,
-            "y": 1817.98828125,
+            "y": 2137.98828125,
             "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 169,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1868
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1857.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 170,
-        "label": "Program requirements urgent \u00a0-\u00a0 Yup, I'm in thank  [LINK]",
-        "value": "Program requirements urgent\n\u00a0-\u00a0\nYup, I'm in thank",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1868
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 1857.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 171,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1908
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1897.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 172,
-        "label": "For you in Connections: CRM Tracker \u00a0-\u00a0 Trending a [LINK]",
-        "value": "For you in Connections: CRM Tracker\n\u00a0-\u00a0\nTrending a",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1908
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 1897.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 174,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1948
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1937.98828125,
-            "w": 20,
             "h": 20
         },
         "isVisible": true
     },
     {
         "element_id": 175,
-        "label": "Your Application for Software Engineer Intern with [LINK]",
-        "value": "Your Application for Software Engineer Intern with",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1948
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 1937.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 176,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 1988
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 1977.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 177,
-        "label": "Research Engineer at Ursus, Inc. in Redmond, WA an [LINK]",
-        "value": "Research Engineer at Ursus, Inc. in Redmond, WA an",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 1988
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 1977.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 179,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 2028
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 2017.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 180,
-        "label": "Aaron | An update from Block \u00a0-\u00a0 Hi Aaron, Thank y [LINK]",
-        "value": "Aaron | An update from Block\n\u00a0-\u00a0\nHi Aaron, Thank y",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 2028
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 2017.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 181,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 2068
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 2057.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 182,
-        "label": "Order Confirmation (#983705) \u00a0-\u00a0 ---------- Forwar [LINK]",
-        "value": "Order Confirmation (#983705)\n\u00a0-\u00a0\n---------- Forwar",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 2068
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 2057.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 183,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 2108
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 2097.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 184,
-        "label": "City of Richmond Cover Letter (1) \u00a0-\u00a0 Behold [LINK]",
-        "value": "City of Richmond Cover Letter (1)\n\u00a0-\u00a0\nBehold",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 2108
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 2097.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 185,
-        "label": "Not starred [BUTTON]",
-        "value": "",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 380,
-            "y": 2148
-        },
-        "rect": {
-            "x": 369.990234375,
-            "y": 2137.98828125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 186,
-        "label": "Clerkie Software Engineer Internship (4 openings)  [LINK]",
-        "value": "Clerkie Software Engineer Internship (4 openings)",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1014,
-            "y": 2148
-        },
-        "rect": {
-            "x": 629.98046875,
-            "y": 2137.98828125,
-            "w": 768.408203125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 294,
         "label": "1% of 2,048 GB used [LINK]",
         "value": "1% of 2,048 GB used",
         "tagName": "A",
-        "coord": {
-            "x": 450,
-            "y": 2207
-        },
         "rect": {
             "x": 339.990234375,
             "y": 2190.9765625,
@@ -2363,14 +1807,10 @@
         "isVisible": true
     },
     {
-        "element_id": 295,
+        "element_id": 176,
         "label": "Terms [LINK]",
         "value": "Terms",
         "tagName": "A",
-        "coord": {
-            "x": 841,
-            "y": 2194
-        },
         "rect": {
             "x": 824.951171875,
             "y": 2186.484375,
@@ -2380,14 +1820,10 @@
         "isVisible": true
     },
     {
-        "element_id": 296,
+        "element_id": 177,
         "label": "Privacy [LINK]",
         "value": "Privacy",
         "tagName": "A",
-        "coord": {
-            "x": 887,
-            "y": 2194
-        },
         "rect": {
             "x": 867.119140625,
             "y": 2186.484375,
@@ -2397,14 +1833,10 @@
         "isVisible": true
     },
     {
-        "element_id": 297,
+        "element_id": 178,
         "label": "Program Policies [LINK]",
         "value": "Program Policies",
         "tagName": "A",
-        "coord": {
-            "x": 961,
-            "y": 2194
-        },
         "rect": {
             "x": 915.64453125,
             "y": 2186.484375,
@@ -2414,14 +1846,10 @@
         "isVisible": true
     },
     {
-        "element_id": 298,
+        "element_id": 179,
         "label": "Details [LINK]",
         "value": "Details",
         "tagName": "SPAN",
-        "coord": {
-            "x": 1473,
-            "y": 2214
-        },
         "rect": {
             "x": 1454.248046875,
             "y": 2206.484375,
@@ -2431,614 +1859,15 @@
         "isVisible": true
     },
     {
-        "element_id": 307,
+        "element_id": 188,
         "label": "Hide side panel [BUTTON]",
         "value": "",
         "tagName": "DIV",
-        "coord": {
-            "x": 1552,
-            "y": 827
-        },
         "rect": {
             "x": 1524.00390625,
             "y": 798.994140625,
             "w": 55.99609375,
             "h": 55.99609375
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 308,
-        "label": "To - Select contacts [LINK]",
-        "value": "To",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 933,
-            "y": 301
-        },
-        "rect": {
-            "x": 925,
-            "y": 292.24609375,
-            "w": 15.087890625,
-            "h": 17.5
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 309,
-        "label": "To recipients [INPUT]",
-        "value": "",
-        "tagName": "INPUT",
-        "coord": {
-            "x": 1196,
-            "y": 301
-        },
-        "rect": {
-            "x": 948.740234375,
-            "y": 283.0078125,
-            "w": 493.88671875,
-            "h": 35.99609375
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 310,
-        "label": "Add Cc recipients \u202a(Ctrl-Shift-C)\u202c [LINK]",
-        "value": "Cc",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 1451,
-            "y": 301
-        },
-        "rect": {
-            "x": 1442.626953125,
-            "y": 289.00390625,
-            "w": 17.1484375,
-            "h": 24.00390625
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 311,
-        "label": "Add Bcc recipients \u202a(Ctrl-Shift-B)\u202c [LINK]",
-        "value": "Bcc",
-        "tagName": "SPAN",
-        "coord": {
-            "x": 1476,
-            "y": 301
-        },
-        "rect": {
-            "x": 1464.43359375,
-            "y": 289.00390625,
-            "w": 23.916015625,
-            "h": 24.00390625
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 316,
-        "label": "Subject [INPUT]",
-        "value": "",
-        "tagName": "INPUT",
-        "coord": {
-            "x": 1209,
-            "y": 341
-        },
-        "rect": {
-            "x": 925,
-            "y": 331.005859375,
-            "w": 568.0078125,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 342,
-        "label": "Message Body [INPUT]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1209,
-            "y": 550
-        },
-        "rect": {
-            "x": 925,
-            "y": 371.005859375,
-            "w": 568.0078125,
-            "h": 357.998046875
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 344,
-        "label": "Undo \u202a(Ctrl-Z)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 946,
-            "y": 771
-        },
-        "rect": {
-            "x": 938.994140625,
-            "y": 761.015625,
-            "w": 15,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 345,
-        "label": "Redo \u202a(Ctrl-Y)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 974,
-            "y": 771
-        },
-        "rect": {
-            "x": 963.994140625,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 346,
-        "label": "Size \u202a(Ctrl-Shift--, Ctrl-Shift-+)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1121,
-            "y": 771
-        },
-        "rect": {
-            "x": 1101.171875,
-            "y": 761.015625,
-            "w": 39.990234375,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 347,
-        "label": "Bold \u202a(Ctrl-B)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1163,
-            "y": 771
-        },
-        "rect": {
-            "x": 1152.763671875,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 348,
-        "label": "Italic \u202a(Ctrl-I)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1193,
-            "y": 771
-        },
-        "rect": {
-            "x": 1182.763671875,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 349,
-        "label": "Underline \u202a(Ctrl-U)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1223,
-            "y": 771
-        },
-        "rect": {
-            "x": 1212.763671875,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 350,
-        "label": "Text color [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1260,
-            "y": 771
-        },
-        "rect": {
-            "x": 1239.755859375,
-            "y": 761.015625,
-            "w": 39.990234375,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 351,
-        "label": "Align [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1308,
-            "y": 771
-        },
-        "rect": {
-            "x": 1288.33984375,
-            "y": 761.015625,
-            "w": 39.990234375,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 352,
-        "label": "Numbered list \u202a(Ctrl-Shift-7)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1345,
-            "y": 771
-        },
-        "rect": {
-            "x": 1335.322265625,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 353,
-        "label": "Bulleted list \u202a(Ctrl-Shift-8)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1375,
-            "y": 771
-        },
-        "rect": {
-            "x": 1365.322265625,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 354,
-        "label": "Indent less \u202a(Ctrl-[)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1405,
-            "y": 771
-        },
-        "rect": {
-            "x": 1395.322265625,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 355,
-        "label": "Indent more \u202a(Ctrl-])\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1435,
-            "y": 771
-        },
-        "rect": {
-            "x": 1425.322265625,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 356,
-        "label": "More formatting options [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1467,
-            "y": 771
-        },
-        "rect": {
-            "x": 1456.923828125,
-            "y": 761.015625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 361,
-        "label": "Send \u202a(Ctrl-Enter)\u202c [BUTTON]",
-        "value": "Send",
-        "tagName": "DIV",
-        "coord": {
-            "x": 961,
-            "y": 823
-        },
-        "rect": {
-            "x": 925,
-            "y": 805.390625,
-            "w": 71.9921875,
-            "h": 35.99609375
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 362,
-        "label": "More send options [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1013,
-            "y": 823
-        },
-        "rect": {
-            "x": 996.9921875,
-            "y": 805.390625,
-            "w": 32.6171875,
-            "h": 35.99609375
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 363,
-        "label": " [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1052,
-            "y": 823
-        },
-        "rect": {
-            "x": 1041.6015625,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 364,
-        "label": "Help me write (Alt + H) [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1084,
-            "y": 823
-        },
-        "rect": {
-            "x": 1073.59375,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 365,
-        "label": "Attach files [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1116,
-            "y": 823
-        },
-        "rect": {
-            "x": 1105.5859375,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 367,
-        "label": "Insert link \u202a(Ctrl-K)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1148,
-            "y": 823
-        },
-        "rect": {
-            "x": 1137.578125,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 368,
-        "label": "Insert emoji \u202a(Ctrl-Shift-2)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1180,
-            "y": 823
-        },
-        "rect": {
-            "x": 1169.5703125,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 369,
-        "label": "Insert files using Drive [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1212,
-            "y": 823
-        },
-        "rect": {
-            "x": 1201.5625,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 370,
-        "label": "Insert photo [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1244,
-            "y": 823
-        },
-        "rect": {
-            "x": 1233.5546875,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 371,
-        "label": "Toggle confidential mode [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1276,
-            "y": 823
-        },
-        "rect": {
-            "x": 1265.546875,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 372,
-        "label": "Insert signature [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1308,
-            "y": 823
-        },
-        "rect": {
-            "x": 1297.5390625,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 373,
-        "label": "More options [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1344,
-            "y": 823
-        },
-        "rect": {
-            "x": 1333.525390625,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 374,
-        "label": "Discard draft \u202a(Ctrl-Shift-D)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 1483,
-            "y": 823
-        },
-        "rect": {
-            "x": 1472.998046875,
-            "y": 813.0078125,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 375,
-        "label": "Remove formatting \u202a(Ctrl-\\)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 18,
-            "y": 10
-        },
-        "rect": {
-            "x": 7.998046875,
-            "y": -0.009765625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 376,
-        "label": "Strikethrough \u202a(Alt-Shift-5)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 18,
-            "y": 38
-        },
-        "rect": {
-            "x": 7.998046875,
-            "y": 27.978515625,
-            "w": 20,
-            "h": 20
-        },
-        "isVisible": true
-    },
-    {
-        "element_id": 377,
-        "label": "Quote \u202a(Ctrl-Shift-9)\u202c [BUTTON]",
-        "value": "",
-        "tagName": "DIV",
-        "coord": {
-            "x": 18,
-            "y": 66
-        },
-        "rect": {
-            "x": 7.998046875,
-            "y": 55.966796875,
-            "w": 20,
-            "h": 20
         },
         "isVisible": true
     }

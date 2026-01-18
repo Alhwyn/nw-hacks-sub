@@ -10,6 +10,9 @@ import './styles.css';
 const AppContent: React.FC = () => {
   const { startConversation, addMessage, isCallActive } = useConversation();
 
+
+  
+
   useEffect(() => {
     let hasStarted = false;
 
@@ -51,8 +54,8 @@ const AppContent: React.FC = () => {
       <StatusIndicator />
       <div className="app-container">
         <ChatArea />
-        <VoiceControls />
       </div>
+      <VoiceControls />
     </>
   );
 };
