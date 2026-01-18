@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, desktopCapturer, systemPreferences, shell, dialog } from 'electron';
+import { app, BrowserWindow, ipcMain, desktopCapturer, systemPreferences, shell, dialog, screen } from 'electron';
 import path from 'path';
 
 // Load environment variables (for Bun)
@@ -36,19 +36,28 @@ async function requestMicrophonePermission(): Promise<boolean> {
 
 console.log('Screen recording permission:', getScreenPermissionStatus());
 console.log('Microphone permission:', getMicrophonePermissionStatus());
+
+// Store original window position for movement animation
+let originalPosition: { x: number; y: number } | null = null;
+
 // Import services
 import * as conversationalService from './services/conversational';
 import * as visionService from './services/vision';
 import * as elevenlabsService from './services/elevenlabs';
-import * as supabaseService from './services/supabase';
-import * as geminiService from './services/gemini';
+import { createOverlayWindow, showHighlight, clearHighlight } from './overlay';
+import { startHighlightServer, stopHighlightServer } from './services/highlight';
+import { launchApplication, executeCommand } from './services/computer-agent';
 
 function createWindow(): void {
   const win = new BrowserWindow({
-    width: 700,
-    height: 500,
-    minWidth: 500,
-    minHeight: 400,
+    width: 360,
+    height: 420,
+    minWidth: 320,
+    minHeight: 380,
+    maxWidth: 400,
+    maxHeight: 500,
+    resizable: true,
+    alwaysOnTop: true, // Keep window always visible on top
     
     // Glassy/Transparent window settings
     transparent: true,     // Enable transparency
@@ -100,14 +109,11 @@ function createWindow(): void {
 
 // Permission handlers
 ipcMain.handle('permission:getScreenStatus', () => {
-  const status = getScreenPermissionStatus();
-  console.log('IPC: Screen permission status:', status);
-  return status;
+  return getScreenPermissionStatus();
 });
 
 ipcMain.handle('permission:requestScreen', async () => {
   const status = getScreenPermissionStatus();
-  console.log('IPC: Current screen permission status:', status);
   
   if (status === 'granted') {
     return { success: true, status: 'granted' };
@@ -136,23 +142,18 @@ ipcMain.handle('permission:requestScreen', async () => {
 
 // Microphone permission handlers
 ipcMain.handle('permission:getMicrophoneStatus', () => {
-  const status = getMicrophonePermissionStatus();
-  console.log('IPC: Microphone permission status:', status);
-  return status;
+  return getMicrophonePermissionStatus();
 });
 
 ipcMain.handle('permission:requestMicrophone', async () => {
   const currentStatus = getMicrophonePermissionStatus();
-  console.log('IPC: Current microphone permission status:', currentStatus);
   
   if (currentStatus === 'granted') {
     return { success: true, status: 'granted' };
   }
   
-  // Request microphone permission (works on macOS)
   const granted = await requestMicrophonePermission();
   const newStatus = getMicrophonePermissionStatus();
-  console.log('IPC: Microphone permission after request:', newStatus);
   
   return { 
     success: granted, 
@@ -163,45 +164,33 @@ ipcMain.handle('permission:requestMicrophone', async () => {
 
 // Conversational AI handlers
 ipcMain.handle('conversation:getSignedUrl', async () => {
-  console.log('IPC: conversation:getSignedUrl called');
   try {
-    const url = await conversationalService.getSignedUrl();
-    console.log('IPC: Signed URL returned successfully');
-    return url;
+    return await conversationalService.getSignedUrl();
   } catch (error) {
-    console.error('IPC: Error getting signed URL:', error);
+    console.error('Error getting signed URL:', error);
     throw error;
   }
 });
 
-ipcMain.handle('conversation:getConfig', async () => {
-  console.log('IPC: conversation:getConfig called');
-  const config = conversationalService.getConversationConfig();
-  console.log('IPC: Config returned');
-  return config;
+ipcMain.handle('conversation:getConfig', () => {
+  return conversationalService.getConversationConfig();
 });
 
 // Vision handlers
 ipcMain.handle('vision:analyzeScreen', async (_, question?: string) => {
-  console.log('IPC: vision:analyzeScreen called');
   try {
-    const result = await visionService.analyzeScreen(question);
-    console.log('IPC: Screen analysis returned successfully');
-    return result;
+    return await visionService.analyzeScreen(question);
   } catch (error) {
-    console.error('IPC: Error analyzing screen:', error);
+    console.error('Error analyzing screen:', error);
     throw error;
   }
 });
 
 ipcMain.handle('vision:captureAndDescribe', async () => {
-  console.log('IPC: vision:captureAndDescribe called');
   try {
-    const result = await visionService.captureAndDescribe();
-    console.log('IPC: Screen capture and description returned successfully');
-    return result;
+    return await visionService.captureAndDescribe();
   } catch (error) {
-    console.error('IPC: Error capturing and describing screen:', error);
+    console.error('Error capturing screen:', error);
     throw error;
   }
 });
@@ -222,52 +211,135 @@ ipcMain.handle('screen:capture', async () => {
 
 // TTS handlers (ElevenLabs)
 ipcMain.handle('tts:speak', async (_, text: string, voiceId?: string) => {
-  console.log('IPC: tts:speak called');
   try {
     const audioBuffer = await elevenlabsService.textToSpeech(text, { voiceId });
-    // Convert buffer to base64 for transfer to renderer
-    const base64Audio = audioBuffer.toString('base64');
-    console.log('IPC: TTS audio generated, size:', base64Audio.length);
-    return base64Audio;
+    return audioBuffer.toString('base64');
   } catch (error) {
-    // Don't log cancellation as error - it's expected when user ends conversation
     if (error instanceof Error && error.message === 'TTS_CANCELLED') {
-      console.log('IPC: TTS was cancelled');
       return null;
     }
-    console.error('IPC: Error in tts:speak:', error);
+    console.error('TTS error:', error);
     throw error;
   }
 });
 
 ipcMain.handle('tts:cancel', () => {
-  console.log('IPC: tts:cancel called');
   elevenlabsService.cancelTTS();
   return { success: true };
 });
 
-// Supabase handlers
-ipcMain.handle('supabase:saveMemory', async (_, memory) => {
-  return await supabaseService.saveMemory(memory);
+// Highlight overlay handlers
+ipcMain.handle('highlight:show', (_, data: { x: number; y: number; width: number; height: number; label: string; instruction: string }) => {
+  showHighlight(data);
+  return { success: true };
 });
 
-ipcMain.handle('supabase:getRecentMemories', async (_, userId, limit) => {
-  return await supabaseService.getRecentMemories(userId, limit);
+ipcMain.handle('highlight:clear', () => {
+  clearHighlight();
+  return { success: true };
 });
 
-ipcMain.handle('supabase:sendNudge', async (_, nudge) => {
-  return await supabaseService.sendNudge(nudge);
+// Find and highlight - combines vision detection with highlighting
+ipcMain.handle('highlight:findAndShow', async (_, elementDescription: string) => {
+  try {
+    const location = await visionService.findElement(elementDescription);
+    
+    if (!location.found) {
+      return { 
+        success: false, 
+        message: `Could not find "${elementDescription}" on screen`,
+        found: false 
+      };
+    }
+    
+    showHighlight({
+      x: location.x,
+      y: location.y,
+      width: location.width,
+      height: location.height,
+      label: elementDescription.toUpperCase(),
+      instruction: `Click here - ${location.description}`,
+    });
+    
+    return { 
+      success: true, 
+      message: `Found and highlighted: ${location.description}`,
+      found: true,
+      location 
+    };
+  } catch (error) {
+    console.error('Error in findAndShow:', error);
+    return { 
+      success: false, 
+      message: `Error finding element: ${error}`,
+      found: false 
+    };
+  }
 });
 
-ipcMain.handle('gemini:summarize', async (_, messages) => {
-  return await geminiService.summarizeConversation(messages);
+// System control handlers
+ipcMain.handle('system:launchApp', async (_, appName: string) => {
+  try {
+    const result = await launchApplication(appName);
+    return { success: true, message: result };
+  } catch (error) {
+    console.error('Error launching app:', error);
+    throw error;
+  }
+});
+
+ipcMain.handle('system:execute', async (_, command: string) => {
+  try {
+    const result = await executeCommand(command);
+    return { success: true, output: result };
+  } catch (error) {
+    console.error('Error executing command:', error);
+    throw error;
+  }
+});
+
+// Window movement handlers
+const WINDOW_WIDTH = 360;
+
+ipcMain.handle('window:moveToCorner', () => {
+  const win = BrowserWindow.getAllWindows()[0];
+  if (!win) return;
+  
+  if (!originalPosition) {
+    const position = win.getPosition();
+    originalPosition = { x: position[0] || 0, y: position[1] || 0 };
+  }
+  
+  const display = screen.getPrimaryDisplay();
+  const workArea = display.workArea;
+  const newX = workArea.x + workArea.width - WINDOW_WIDTH - 20;
+  const newY = workArea.y + 20;
+  
+  win.setPosition(newX, newY, true);
+});
+
+ipcMain.handle('window:moveBack', () => {
+  const win = BrowserWindow.getAllWindows()[0];
+  if (!win || !originalPosition) return;
+  
+  win.setPosition(originalPosition.x, originalPosition.y, true);
+  originalPosition = null;
 });
 
 // ==================== APP LIFECYCLE ====================
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow();
+  
+  // Create overlay window for screen highlights
+  createOverlayWindow();
+  
+  // Start HTTP server for Python integration
+  startHighlightServer();
+});
 
 app.on('window-all-closed', () => {
+  stopHighlightServer();
   if (process.platform !== 'darwin') {
     app.quit();
   }

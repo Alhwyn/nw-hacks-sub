@@ -4,11 +4,18 @@ import { Titlebar } from './components/Titlebar';
 import { StatusIndicator } from './components/StatusIndicator';
 import { ChatArea } from './components/ChatArea';
 import { VoiceControls } from './components/VoiceControls';
+<<<<<<< HEAD
 import { RelationshipFeed } from './components/RelationshipFeed';
+=======
+import { getElectronAPI } from './types';
+>>>>>>> fc66a1dca62c24cbf19696c84cd5785843e4ce7a
 import './styles.css';
 
 const AppContent: React.FC = () => {
   const { startConversation, addMessage, isCallActive } = useConversation();
+
+
+  
 
   useEffect(() => {
     let hasStarted = false;
@@ -16,7 +23,7 @@ const AppContent: React.FC = () => {
     // Check screen permission on startup
     const checkPermissions = async () => {
       try {
-        const api = window.electronAPI;
+        const api = getElectronAPI();
         const screenStatus = await api.permission.getScreenStatus();
         console.log('Screen recording permission:', screenStatus);
 
@@ -50,12 +57,17 @@ const AppContent: React.FC = () => {
       <Titlebar />
       <StatusIndicator />
       <div className="app-container">
+<<<<<<< HEAD
         <div className="main-content">
           <ChatArea />
           <RelationshipFeed />
         </div>
         <VoiceControls />
+=======
+        <ChatArea />
+>>>>>>> fc66a1dca62c24cbf19696c84cd5785843e4ce7a
       </div>
+      <VoiceControls />
     </>
   );
 };
