@@ -55,7 +55,7 @@ function createWindow(): void {
     minWidth: 320,
     minHeight: 380,
     maxWidth: 400,
-    maxHeight: 500,
+    maxHeight: 650,
     resizable: true,
     alwaysOnTop: true, // Keep window always visible on top
     
