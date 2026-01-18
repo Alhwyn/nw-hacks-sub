@@ -15,7 +15,8 @@
     "watch:electron": "tsc -p tsconfig.electron.json --watch",
     "watch:renderer": "vite",
     "watch:app": "sleep 2 && electron .",
-    "clean": "rm -rf dist-electron dist-renderer"
+    "clean": "rm -rf dist-electron dist-renderer",
+    "postinstall": "electron-builder install-app-deps"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
@@ -45,36 +46,46 @@
     "install": "^0.13.0",
     "openai": "^6.16.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "robotjs": "^0.6.0"
+    "react-dom": "^19.2.3"
   },
   "build": {
     "appId": "com.yourname.granny",
     "productName": "Granny",
-    "mac": {
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "arm64"
-          ]
-        },
-        {
-          "target": "zip",
-          "arch": [
-            "arm64"
-          ]
-        }
-      ],
-      "category": "public.app-category.utilities"
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
     },
     "files": [
       "dist-electron/**/*",
       "dist-renderer/**/*",
       "public/**/*"
     ],
-    "directories": {
-      "output": "release"
-    }
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "category": "public.app-category.utilities",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "notarize": {
+        "teamId": "YOUR_TEAM_ID"
+      }
+    },
+    "afterSign": "scripts/notarize.js"
   }
 }
