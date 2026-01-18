@@ -31,7 +31,24 @@ async function captureScreenshot(): Promise<string> {
     throw new Error('No screen source available');
   }
 
-  return primaryScreen.thumbnail.toDataURL();
+  const thumbnail = primaryScreen.thumbnail;
+  
+  // Validate thumbnail is not empty
+  if (thumbnail.isEmpty()) {
+    throw new Error('Screenshot capture failed - empty thumbnail. Make sure screen recording permission is granted.');
+  }
+
+  const dataUrl = thumbnail.toDataURL();
+  
+  // Validate data URL format
+  if (!dataUrl || !dataUrl.startsWith('data:image/')) {
+    throw new Error(`Invalid screenshot data URL format: ${dataUrl?.substring(0, 50) || 'empty'}`);
+  }
+
+  // Log for debugging (can be removed later)
+  console.log(`[Vision] Screenshot captured: ${dataUrl.substring(0, 50)}... (${dataUrl.length} chars)`);
+
+  return dataUrl;
 }
 
 /**

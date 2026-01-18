@@ -87,7 +87,7 @@ body {
   position: relative;
   z-index: 1;
   padding-bottom: 160px;
-  /* border: 3px solid red; /* DEBUG */ */
+  /* border: 3px solid red; DEBUG */
 
 }
 
@@ -102,7 +102,7 @@ body {
   padding-right: 1.5rem;
   gap: 1rem;
   margin-bottom: 1rem;
-  /* border: 3px solid green; /* DEBUG */ */
+  /* border: 3px solid green; DEBUG */
 
 }
 
