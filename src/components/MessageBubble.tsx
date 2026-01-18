@@ -10,8 +10,11 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
   const isUser = role === 'user';
   const isSystem = role === 'system';
   
+  // Read agent name from localStorage
+  const agentName = localStorage.getItem('agentName') || 'Edith';
+  
   const messageClass = isSystem ? 'system' : isUser ? 'user' : 'agent';
-  const label = isUser ? 'You' : isSystem ? 'System' : "Granny's Helper";
+  const label = isUser ? 'You' : isSystem ? 'System' : `${agentName}'s Helper`;
 
   return (
     <div className={`message-row ${messageClass}`}>

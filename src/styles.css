@@ -155,7 +155,7 @@ body {
 }
 
 .message-label {
-  font-size: 0.6rem;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -164,7 +164,7 @@ body {
 }
 
 .message-content {
-  font-size: 20px;
+  font-size: var(--message-font-size, 20px);
   line-height: 1.5;
   color: var(--text);
   word-wrap: break-word;
@@ -232,7 +232,7 @@ body {
 
 /* Bottom Controls - Compact */
 .bottom-controls {
-  position: fixed;
+  position: fixed; /* Keep this as fixed */
   bottom: 0;
   left: 0;
   right: 0;
@@ -429,6 +429,142 @@ body {
     transform: translateY(0);
   }
 }
+
+.settings-button {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:rgba(93, 92, 88); /* Darker background */
+  border: 2px solid rgba(0, 0, 0, 0.8); /* Darker, thicker border */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 60; /* Higher z-index to stay on top */
+}
+
+.settings-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.settings-button svg {
+  width: 20px;
+  height: 20px;
+  color: white; /* Make sure the icon is white */
+  stroke: white; /* Explicitly set stroke to white */
+}
+
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 52px;
+  left: 16px;
+  padding: 0.5rem 1rem;
+  background: rgb(93, 92, 88); 
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  z-index: 50;
+  font-size: var(--message-font-size, 20px);
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Settings Page Styles */
+.settings-page {
+  padding: 120px 2rem 2rem; /* Changed from 60px to 90px */
+  height: 100vh;
+  overflow-y: auto;
+  background: rgb(250, 249, 247);
+}
+
+.settings-header {
+  margin-bottom: 2rem;
+}
+
+.settings-header h1 {
+  font-size: var(--message-font-size, 20px);
+  color: #333;
+  margin: 0;
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.setting-item label {
+  font-size: var(--message-font-size, 20px);
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.setting-helper {
+  font-size: var(--message-font-size, 20px);
+  color: #666;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.setting-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: black;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: var(--message-font-size, 20px);
+  font-family: 'Inclusive Sans', sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.setting-input:focus {
+  outline: none;
+  border-color: rgb(43 150 171);
+}
+.font-size-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.font-size-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  color: #333;
+}
+
+.font-size-option input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  accent-color: rgb(43 150 171);
+}
+
+
 
 /* Scrollbar */
 ::-webkit-scrollbar {
