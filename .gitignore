@@ -4,6 +4,8 @@ node_modules
 # output
 out
 dist
+dist-renderer
+dist-electron
 *.tgz
 
 # code coverage
@@ -12,7 +14,7 @@ coverage
 
 # logs
 logs
-_.log
+*.log
 report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # dotenv environment variable files
@@ -32,8 +34,8 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Finder (MacOS) folder config
 .DS_Store
-dist-electron
 
 # custom (Aaron)
-.env
+.venv
+server/.venv
 server/user_data/
