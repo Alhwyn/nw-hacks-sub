@@ -1,18 +1,14 @@
-import { ElevenLabsClient } from 'elevenlabs';
+// ElevenLabs TTS Service
+// Uses direct API calls for text-to-speech functionality
 
-// Lazy initialization - client created on first use after dotenv loads
-let client: ElevenLabsClient | null = null;
+const ELEVENLABS_API_BASE = 'https://api.elevenlabs.io/v1';
 
-function getClient(): ElevenLabsClient {
-  if (!client) {
-    const apiKey = process.env.ELEVENLABS_API_KEY;
-    if (!apiKey) {
-      throw new Error('Missing ELEVENLABS_API_KEY in .env file');
-    }
-    console.log('Initializing ElevenLabs with API key:', apiKey.substring(0, 10) + '...');
-    client = new ElevenLabsClient({ apiKey });
+function getApiKey(): string {
+  const apiKey = process.env.ELEVENLABS_API_KEY;
+  if (!apiKey) {
+    throw new Error('Missing ELEVENLABS_API_KEY in .env file');
   }
-  return client;
+  return apiKey;
 }
 
 export interface TTSOptions {
@@ -24,40 +20,72 @@ export async function textToSpeech(
   text: string,
   options: TTSOptions = {}
 ): Promise<Buffer> {
-  const elevenlabs = getClient();
+  const apiKey = getApiKey();
   const voiceId = options.voiceId || 'EXAVITQu4vr4xnSDxMaL'; // Default: Sarah
   const modelId = options.modelId || 'eleven_monolingual_v1';
 
   console.log('TTS request:', { text: text.substring(0, 50) + '...', voiceId, modelId });
 
   try {
-    const audioStream = await elevenlabs.textToSpeech.convert(voiceId, {
-      text,
-      model_id: modelId,
-      output_format: 'mp3_44100_128',
+    const response = await fetch(`${ELEVENLABS_API_BASE}/text-to-speech/${voiceId}`, {
+      method: 'POST',
+      headers: {
+        'xi-api-key': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text,
+        model_id: modelId,
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.5,
+        },
+      }),
     });
 
-    // Convert stream to buffer
-    const chunks: Uint8Array[] = [];
-    for await (const chunk of audioStream) {
-      chunks.push(chunk);
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`ElevenLabs API error: ${response.status} - ${errorText}`);
     }
+
+    const arrayBuffer = await response.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
     
-    console.log('TTS success, audio size:', chunks.reduce((a, b) => a + b.length, 0), 'bytes');
-    return Buffer.concat(chunks);
+    console.log('TTS success, audio size:', buffer.length, 'bytes');
+    return buffer;
   } catch (error) {
     console.error('ElevenLabs TTS error:', error);
     throw error;
   }
 }
 
-export async function getVoices() {
-  const elevenlabs = getClient();
+export interface Voice {
+  voice_id: string;
+  name: string;
+  category?: string;
+  labels?: Record<string, string>;
+}
+
+export async function getVoices(): Promise<Voice[]> {
+  const apiKey = getApiKey();
   console.log('Fetching ElevenLabs voices...');
+
   try {
-    const voices = await elevenlabs.voices.getAll();
-    console.log('Found', voices.voices?.length || 0, 'voices');
-    return voices.voices;
+    const response = await fetch(`${ELEVENLABS_API_BASE}/voices`, {
+      method: 'GET',
+      headers: {
+        'xi-api-key': apiKey,
+      },
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`ElevenLabs API error: ${response.status} - ${errorText}`);
+    }
+
+    const data = await response.json() as { voices: Voice[] };
+    console.log('Found', data.voices?.length || 0, 'voices');
+    return data.voices || [];
   } catch (error) {
     console.error('ElevenLabs voices error:', error);
     throw error;

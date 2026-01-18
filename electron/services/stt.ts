@@ -28,7 +28,8 @@ export async function transcribeAudio(audioBuffer: Buffer): Promise<string> {
     const formData = new FormData();
     
     // Add the audio file as a blob
-    const audioBlob = new Blob([audioBuffer], { type: 'audio/webm' });
+    // Convert Buffer to Uint8Array for Blob compatibility
+    const audioBlob = new Blob([new Uint8Array(audioBuffer)], { type: 'audio/webm' });
     formData.append('file', audioBlob, 'recording.webm');
     formData.append('model_id', 'scribe_v1');
 

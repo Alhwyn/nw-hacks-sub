@@ -7,6 +7,8 @@ config();
 
 // Import services
 import * as conversationalService from './services/conversational';
+import * as toolsService from './services/tools';
+import * as googleAuth from './services/googleAuth';
 
 function createWindow(): void {
   const win = new BrowserWindow({
@@ -81,6 +83,40 @@ ipcMain.handle('conversation:getConfig', async () => {
   const config = conversationalService.getConversationConfig();
   console.log('IPC: Config returned');
   return config;
+});
+
+// Tools handlers for Calendar and Gmail
+ipcMain.handle('tools:execute', async (_event, toolName: string, params: Record<string, any>) => {
+  console.log('IPC: tools:execute called:', toolName, params);
+  try {
+    const result = await toolsService.executeTool(toolName, params);
+    console.log('IPC: Tool result:', result.substring(0, 100) + '...');
+    return result;
+  } catch (error) {
+    console.error('IPC: Tool execution error:', error);
+    throw error;
+  }
+});
+
+ipcMain.handle('tools:isGoogleAuthenticated', async () => {
+  console.log('IPC: tools:isGoogleAuthenticated called');
+  return toolsService.isGoogleAuthenticated();
+});
+
+ipcMain.handle('tools:authenticateGoogle', async () => {
+  console.log('IPC: tools:authenticateGoogle called');
+  try {
+    const result = await googleAuth.authenticateGoogle();
+    return result;
+  } catch (error) {
+    console.error('IPC: Google auth error:', error);
+    throw error;
+  }
+});
+
+ipcMain.handle('tools:signOutGoogle', async () => {
+  console.log('IPC: tools:signOutGoogle called');
+  toolsService.signOutGoogle();
 });
 
 // Screenshot handler (kept for potential future use)
