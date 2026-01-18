@@ -24,8 +24,6 @@ export function createOverlayWindow(): BrowserWindow {
     fullscreen: false,
     fullscreenable: false,
     hasShadow: false,
-    // Enable showing above fullscreen windows (macOS)
-    simpleFullscreen: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
@@ -40,8 +38,15 @@ export function createOverlayWindow(): BrowserWindow {
   // Keep overlay on all workspaces including fullscreen spaces (macOS)
   overlayWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 
-  // Set window level to screen-saver (highest level - above fullscreen apps)
-  overlayWindow.setAlwaysOnTop(true, 'screen-saver');
+  // Set window level for fullscreen compatibility
+  // Using 'floating' with relativeLevel works better than 'screen-saver' for macOS fullscreen Spaces
+  if (process.platform === 'darwin') {
+    overlayWindow.setAlwaysOnTop(true, 'floating', 1);
+    // Re-apply workspace visibility to ensure it sticks after Space changes
+    overlayWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+  } else {
+    overlayWindow.setAlwaysOnTop(true, 'screen-saver');
+  }
 
   // Load overlay HTML (same path for dev and prod)
   overlayWindow.loadFile(path.join(__dirname, '../dist-renderer/overlay/overlay.html'));

@@ -117,7 +117,7 @@ html, body {
   max-width: calc(100vw - 32px);
   width: fit-content;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.3s ease-out, float 3s ease-in-out infinite 0.3s;
 }
 
 @keyframes fadeIn {
@@ -128,6 +128,21 @@ html, body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-4px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-2px) translateX(-2px);
+  }
+  75% {
+    transform: translateY(-6px) translateX(1px);
   }
 }
 

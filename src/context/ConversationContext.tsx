@@ -95,14 +95,15 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
   }, [updateStatus]);
 
   const startConversation = useCallback(async () => {
-    if (isCallActive) {
-      console.log('Conversation already active, skipping');
+    if (isCallActive || connectionStatus === 'connecting') {
+      console.log('Conversation already active or connecting, skipping');
       return;
     }
 
     try {
       console.log('=== STARTING CONVERSATION ===');
       userEndedCallRef.current = false;
+      setIsCallActive(true); // Set immediately to prevent duplicate clicks
       updateStatus('connecting', 'Connecting');
 
       const api = getElectronAPI();
@@ -132,13 +133,21 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
       const overrides: any = {};
       
       if (config.voiceId) {
-        overrides.tts = { voiceId: config.voiceId };
+        overrides.tts = { 
+          voiceId: config.voiceId,
+          optimize_streaming_latency: 3, // 1-4, higher = more aggressive optimization
+        };
+      } else {
+        overrides.tts = {
+          optimize_streaming_latency: 3,
+        };
       }
 
       console.log('Starting conversation, initial screen context stored');
 
       const newConversation = await Conversation.startSession({
         signedUrl,
+        // Note: WebRTC support coming in future SDK versions; currently using WebSocket
         ...(Object.keys(overrides).length > 0 ? { overrides } : {}),
         // Client tools - handlers only, tool definitions must be in ElevenLabs dashboard
         clientTools: {
@@ -223,7 +232,6 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
         },
         onConnect: () => {
           console.log('Connected to ElevenLabs conversation');
-          setIsCallActive(true);
           updateStatus('connected', 'Active');
         },
         onDisconnect: (disconnectReason) => {
@@ -269,9 +277,10 @@ export const ConversationProvider: React.FC<ConversationProviderProps> = ({ chil
       console.log('Conversation started, waiting for user input...');
     } catch (error) {
       console.error('Failed to start conversation:', error);
+      setIsCallActive(false); // Reset on error
       updateStatus('error', 'Error');
     }
-  }, [isCallActive, updateStatus, addMessage, handleModeChange]);
+  }, [isCallActive, connectionStatus, updateStatus, addMessage, handleModeChange]);
 
   const interruptAgent = useCallback(() => {
     if (conversation) {
