@@ -16,12 +16,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     getConfig: () => ipcRenderer.invoke('conversation:getConfig'),
   },
 
-  // Chat API (Gemini via OpenRouter)
-  chat: {
-    sendMessage: (message: string) => ipcRenderer.invoke('chat:sendMessage', message),
-    clearHistory: () => ipcRenderer.invoke('chat:clearHistory'),
-  },
-
   // TTS API (ElevenLabs)
   tts: {
     speak: (text: string, voiceId?: string) => ipcRenderer.invoke('tts:speak', text, voiceId),

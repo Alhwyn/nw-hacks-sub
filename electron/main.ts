@@ -33,7 +33,6 @@ console.log('Microphone permission:', getMicrophonePermissionStatus());
 // Import services
 import * as conversationalService from './services/conversational';
 import * as visionService from './services/vision';
-import * as geminiService from './services/gemini';
 import * as elevenlabsService from './services/elevenlabs';
 
 function createWindow(): void {
@@ -82,10 +81,10 @@ function createWindow(): void {
   const isDev = !app.isPackaged;
 
   if (isDev) {
-    win.loadFile(path.join(__dirname, '../src/index.html'));
+    win.loadFile(path.join(__dirname, '../dist-renderer/index.html'));
     win.webContents.openDevTools();
   } else {
-    win.loadFile(path.join(__dirname, '../dist/index.html'));
+    win.loadFile(path.join(__dirname, '../dist-renderer/index.html'));
   }
 }
 
@@ -212,24 +211,6 @@ ipcMain.handle('screen:capture', async () => {
   return null;
 });
 
-// Chat handlers (Gemini via OpenRouter)
-ipcMain.handle('chat:sendMessage', async (_, message: string) => {
-  console.log('IPC: chat:sendMessage called');
-  try {
-    const response = await geminiService.sendMessage(message);
-    console.log('IPC: Chat response received:', response.substring(0, 50) + '...');
-    return response;
-  } catch (error) {
-    console.error('IPC: Error in chat:sendMessage:', error);
-    throw error;
-  }
-});
-
-ipcMain.handle('chat:clearHistory', async () => {
-  console.log('IPC: chat:clearHistory called');
-  geminiService.clearChatHistory();
-  return { success: true };
-});
 
 // TTS handlers (ElevenLabs)
 ipcMain.handle('tts:speak', async (_, text: string, voiceId?: string) => {
