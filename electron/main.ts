@@ -14,10 +14,27 @@ function getScreenPermissionStatus(): string {
   return systemPreferences.getMediaAccessStatus('screen');
 }
 
+// Check microphone permission
+function getMicrophonePermissionStatus(): string {
+  return systemPreferences.getMediaAccessStatus('microphone');
+}
+
+// Request microphone permission (macOS)
+async function requestMicrophonePermission(): Promise<boolean> {
+  if (process.platform === 'darwin') {
+    const granted = await systemPreferences.askForMediaAccess('microphone');
+    return granted;
+  }
+  return true; // Other platforms don't need explicit permission request
+}
+
 console.log('Screen recording permission:', getScreenPermissionStatus());
+console.log('Microphone permission:', getMicrophonePermissionStatus());
 // Import services
 import * as conversationalService from './services/conversational';
 import * as visionService from './services/vision';
+import * as geminiService from './services/gemini';
+import * as elevenlabsService from './services/elevenlabs';
 
 function createWindow(): void {
   const win = new BrowserWindow({
@@ -110,6 +127,33 @@ ipcMain.handle('permission:requestScreen', async () => {
   return { success: false, status: status, message: 'Permission request cancelled' };
 });
 
+// Microphone permission handlers
+ipcMain.handle('permission:getMicrophoneStatus', () => {
+  const status = getMicrophonePermissionStatus();
+  console.log('IPC: Microphone permission status:', status);
+  return status;
+});
+
+ipcMain.handle('permission:requestMicrophone', async () => {
+  const currentStatus = getMicrophonePermissionStatus();
+  console.log('IPC: Current microphone permission status:', currentStatus);
+  
+  if (currentStatus === 'granted') {
+    return { success: true, status: 'granted' };
+  }
+  
+  // Request microphone permission (works on macOS)
+  const granted = await requestMicrophonePermission();
+  const newStatus = getMicrophonePermissionStatus();
+  console.log('IPC: Microphone permission after request:', newStatus);
+  
+  return { 
+    success: granted, 
+    status: newStatus,
+    message: granted ? 'Microphone access granted' : 'Microphone access denied'
+  };
+});
+
 // Conversational AI handlers
 ipcMain.handle('conversation:getSignedUrl', async () => {
   console.log('IPC: conversation:getSignedUrl called');
@@ -166,6 +210,51 @@ ipcMain.handle('screen:capture', async () => {
     return sources[0]?.thumbnail?.toDataURL() || null;
   }
   return null;
+});
+
+// Chat handlers (Gemini via OpenRouter)
+ipcMain.handle('chat:sendMessage', async (_, message: string) => {
+  console.log('IPC: chat:sendMessage called');
+  try {
+    const response = await geminiService.sendMessage(message);
+    console.log('IPC: Chat response received:', response.substring(0, 50) + '...');
+    return response;
+  } catch (error) {
+    console.error('IPC: Error in chat:sendMessage:', error);
+    throw error;
+  }
+});
+
+ipcMain.handle('chat:clearHistory', async () => {
+  console.log('IPC: chat:clearHistory called');
+  geminiService.clearChatHistory();
+  return { success: true };
+});
+
+// TTS handlers (ElevenLabs)
+ipcMain.handle('tts:speak', async (_, text: string, voiceId?: string) => {
+  console.log('IPC: tts:speak called');
+  try {
+    const audioBuffer = await elevenlabsService.textToSpeech(text, { voiceId });
+    // Convert buffer to base64 for transfer to renderer
+    const base64Audio = audioBuffer.toString('base64');
+    console.log('IPC: TTS audio generated, size:', base64Audio.length);
+    return base64Audio;
+  } catch (error) {
+    // Don't log cancellation as error - it's expected when user ends conversation
+    if (error instanceof Error && error.message === 'TTS_CANCELLED') {
+      console.log('IPC: TTS was cancelled');
+      return null;
+    }
+    console.error('IPC: Error in tts:speak:', error);
+    throw error;
+  }
+});
+
+ipcMain.handle('tts:cancel', () => {
+  console.log('IPC: tts:cancel called');
+  elevenlabsService.cancelTTS();
+  return { success: true };
 });
 
 // ==================== APP LIFECYCLE ====================

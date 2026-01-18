@@ -6,12 +6,26 @@ contextBridge.exposeInMainWorld('electronAPI', {
   permission: {
     getScreenStatus: () => ipcRenderer.invoke('permission:getScreenStatus'),
     requestScreen: () => ipcRenderer.invoke('permission:requestScreen'),
+    getMicrophoneStatus: () => ipcRenderer.invoke('permission:getMicrophoneStatus'),
+    requestMicrophone: () => ipcRenderer.invoke('permission:requestMicrophone'),
   },
 
-  // Conversational AI
+  // Conversational AI (ElevenLabs - legacy, kept for reference)
   conversation: {
     getSignedUrl: () => ipcRenderer.invoke('conversation:getSignedUrl'),
     getConfig: () => ipcRenderer.invoke('conversation:getConfig'),
+  },
+
+  // Chat API (Gemini via OpenRouter)
+  chat: {
+    sendMessage: (message: string) => ipcRenderer.invoke('chat:sendMessage', message),
+    clearHistory: () => ipcRenderer.invoke('chat:clearHistory'),
+  },
+
+  // TTS API (ElevenLabs)
+  tts: {
+    speak: (text: string, voiceId?: string) => ipcRenderer.invoke('tts:speak', text, voiceId),
+    cancel: () => ipcRenderer.invoke('tts:cancel'),
   },
 
   // Vision API
