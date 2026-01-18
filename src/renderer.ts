@@ -1,5 +1,5 @@
 // Renderer process - Voice conversation with ElevenLabs Conversational AI
-import { Conversation } from '@11labs/client';
+import { Conversation } from '@elevenlabs/client';
 
 declare global {
   interface Window {
@@ -11,6 +11,12 @@ declare global {
           systemPrompt: string;
           firstMessage: string;
         }>;
+      };
+      tools: {
+        execute: (toolName: string, params: Record<string, any>) => Promise<string>;
+        isGoogleAuthenticated: () => Promise<boolean>;
+        authenticateGoogle: () => Promise<boolean>;
+        signOutGoogle: () => Promise<void>;
       };
     };
   }
@@ -78,9 +84,93 @@ document.addEventListener('DOMContentLoaded', () => {
         overrides.tts = { voiceId: config.voiceId };
       }
 
+      // Create client tools that call the main process
+      const clientTools: Record<string, (params: any) => Promise<string>> = {
+        // Calendar tools
+        get_upcoming_events: async (params) => {
+          console.log('🔧 Tool called: get_upcoming_events', params);
+          updateStatus('thinking', 'Checking calendar...');
+          return await api.tools.execute('get_upcoming_events', params);
+        },
+        get_today_agenda: async (params) => {
+          console.log('🔧 Tool called: get_today_agenda', params);
+          updateStatus('thinking', 'Checking today\'s schedule...');
+          return await api.tools.execute('get_today_agenda', params);
+        },
+        get_tomorrow_agenda: async (params) => {
+          console.log('🔧 Tool called: get_tomorrow_agenda', params);
+          updateStatus('thinking', 'Checking tomorrow\'s schedule...');
+          return await api.tools.execute('get_tomorrow_agenda', params);
+        },
+        get_events_for_day: async (params) => {
+          console.log('🔧 Tool called: get_events_for_day', params);
+          updateStatus('thinking', 'Looking up that day...');
+          return await api.tools.execute('get_events_for_day', params);
+        },
+        create_calendar_event: async (params) => {
+          console.log('🔧 Tool called: create_calendar_event', params);
+          updateStatus('thinking', 'Adding to calendar...');
+          return await api.tools.execute('create_calendar_event', params);
+        },
+        search_calendar_events: async (params) => {
+          console.log('🔧 Tool called: search_calendar_events', params);
+          updateStatus('thinking', 'Searching calendar...');
+          return await api.tools.execute('search_calendar_events', params);
+        },
+
+        // Gmail tools
+        get_recent_emails: async (params) => {
+          console.log('🔧 Tool called: get_recent_emails', params);
+          updateStatus('thinking', 'Checking emails...');
+          return await api.tools.execute('get_recent_emails', params);
+        },
+        get_unread_count: async (params) => {
+          console.log('🔧 Tool called: get_unread_count', params);
+          updateStatus('thinking', 'Counting unread emails...');
+          return await api.tools.execute('get_unread_count', params);
+        },
+        read_email: async (params) => {
+          console.log('🔧 Tool called: read_email', params);
+          updateStatus('thinking', 'Reading email...');
+          return await api.tools.execute('read_email', params);
+        },
+        search_emails: async (params) => {
+          console.log('🔧 Tool called: search_emails', params);
+          updateStatus('thinking', 'Searching emails...');
+          return await api.tools.execute('search_emails', params);
+        },
+        send_email: async (params) => {
+          console.log('🔧 Tool called: send_email', params);
+          updateStatus('thinking', 'Sending email...');
+          return await api.tools.execute('send_email', params);
+        },
+        reply_to_email: async (params) => {
+          console.log('🔧 Tool called: reply_to_email', params);
+          updateStatus('thinking', 'Sending reply...');
+          return await api.tools.execute('reply_to_email', params);
+        },
+        get_emails_from_sender: async (params) => {
+          console.log('🔧 Tool called: get_emails_from_sender', params);
+          updateStatus('thinking', 'Finding emails from that person...');
+          return await api.tools.execute('get_emails_from_sender', params);
+        },
+
+        // Auth tools
+        connect_google_account: async (params) => {
+          console.log('🔧 Tool called: connect_google_account', params);
+          updateStatus('thinking', 'Opening Google sign-in...');
+          return await api.tools.execute('connect_google_account', params);
+        },
+        check_google_connection: async (params) => {
+          console.log('🔧 Tool called: check_google_connection', params);
+          return await api.tools.execute('check_google_connection', params);
+        },
+      };
+
       conversation = await Conversation.startSession({
         signedUrl,
         overrides,
+        clientTools,
         onConnect: () => {
           console.log('✅ Connected to ElevenLabs conversation!');
           isCallActive = true;

@@ -11,5 +11,9 @@
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@elevenlabs/client": "^0.13.0",
+    "googleapis": "^170.1.0"
   }
 }
