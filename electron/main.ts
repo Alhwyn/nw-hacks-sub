@@ -9,14 +9,20 @@ config();
 app.commandLine.appendSwitch('disable-gpu-shader-disk-cache');
 app.commandLine.appendSwitch('disable-software-rasterizer');
 
-// Check screen recording permission
+// Check screen recording permission (macOS only)
 function getScreenPermissionStatus(): string {
-  return systemPreferences.getMediaAccessStatus('screen');
+  if (process.platform === 'darwin') {
+    return systemPreferences.getMediaAccessStatus('screen');
+  }
+  return 'granted'; // Linux/Windows don't have this restriction
 }
 
-// Check microphone permission
+// Check microphone permission (macOS only)
 function getMicrophonePermissionStatus(): string {
-  return systemPreferences.getMediaAccessStatus('microphone');
+  if (process.platform === 'darwin') {
+    return systemPreferences.getMediaAccessStatus('microphone');
+  }
+  return 'granted'; // Linux/Windows don't have this restriction
 }
 
 // Request microphone permission (macOS)

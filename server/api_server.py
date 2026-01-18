@@ -7,11 +7,7 @@ import json
 
 app = FastAPI()
 
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    raise ValueError("OPENAI_API_KEY not found. check your .env file.")
-
-client = OpenAI(api_key=api_key)
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 class Element(BaseModel):
     id: int

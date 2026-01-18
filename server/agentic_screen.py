@@ -8,6 +8,7 @@ from playwright.async_api import async_playwright
 
 # --- Configuration ---
 API_URL = "http://localhost:8000/generate-steps"
+GUIDANCE_URL = "http://localhost:3000/set-arrow" # Placeholder for external guidance service
 
 def encode_image(image_path):
     if not os.path.exists(image_path):
@@ -105,36 +106,57 @@ async def get_and_save_map(page):
         
     return elements
 
-async def perform_action(page, action, element):
-    x, y = element['coord']['x'], element['coord']['y']
-    
-    # Optional: Highlight action
-    await page.evaluate(f"""
-        const el = document.querySelector('[data-ai-id="{element['element_id']}"]');
-        if(el) {{
-            el.style.border = '2px solid red';
-            el.style.backgroundColor = 'rgba(255,0,0,0.1)';
-        }}
-    """)
-    await asyncio.sleep(0.2)
-
-    if action['action'] == "click":
-        print(f"Executing: CLICK on [{element['element_id']}] {element['label']}")
-        await page.mouse.click(x, y)
-        # Wait a bit for potential navigation/UI update
-        await asyncio.sleep(1.0)
+async def send_guidance_request(x: int, y: int, label: str, instruction: str):
+    """
+    Sends a GET request to the external service to render a big red arrow.
+    """
+    try:
+        params = {"x": x, "y": y, "label": label, "instruction": instruction}
+        print(f"--> Sending GUIDANCE: Arrow at ({x}, {y}) [Screen Absolute] for '{label}'")
         
-    elif action['action'] == "type":
-        text = action.get('text', '')
-        print(f"Executing: TYPE '{text}' into [{element['element_id']}] {element['label']}")
-        await page.mouse.click(x, y)
-        await page.keyboard.type(text)
-        await asyncio.sleep(0.5)
+        async with httpx.AsyncClient(timeout=5.0) as client:
+            await client.get(GUIDANCE_URL, params=params)
+    except Exception as e:
+        print(f"Warning: Could not send guidance request: {e}")
 
-        # FIX: Press Tab to confirm input (create chip) and close generic dropdowns
-        # This is CRITICAL for Gmail's "To" field so the dropdown doesn't block the "Subject" click.
-        await page.keyboard.press("Tab")
-        await asyncio.sleep(0.2)
+async def get_browser_offsets(page):
+    """
+    Detects the browser window's absolute position on the screen to calibrate the arrow.
+    """
+    return await page.evaluate("""
+        () => {
+            const topBarHeight = window.outerHeight - window.innerHeight;
+            return {
+                screenX: window.screenX,
+                screenY: window.screenY,
+                topOffset: topBarHeight
+            }
+        }
+    """)
+
+async def wait_for_user_interaction(page):
+    """
+    Waits for the user to perform an action (Click or Key Press).
+    """
+    print("Waiting for USER to perform action...")
+    
+    # We inject a listener to detect clicks or key presses
+    # resolving the promise when an event occurs.
+    await page.evaluate("""
+        new Promise(resolve => {
+            const listener = () => {
+                document.removeEventListener('click', listener, true);
+                document.removeEventListener('keydown', listener, true);
+                resolve();
+            };
+            document.addEventListener('click', listener, {capture: true, once: true});
+            document.addEventListener('keydown', (e) => {
+                if(e.key === 'Enter') listener();
+            }, {capture: true, once: true});
+        })
+    """)
+    print("User action detected! Resuming...")
+    await asyncio.sleep(1.0) # Wait a bit for page to update after user action
 
 async def run_autonomous_loop(goal: str):
     async with async_playwright() as p:
@@ -178,6 +200,12 @@ async def run_autonomous_loop(goal: str):
             
             # 2. THINK (Call API)
             print("Thinking (remote)...")
+            
+            # --- CALIBRATION ---
+            # Get current window position to adjust coordinates for the external overlay
+            offsets = await get_browser_offsets(page)
+            # -------------------
+
             steps = await get_next_steps_from_api(
                 goal=goal,
                 elements=elements,
@@ -195,11 +223,10 @@ async def run_autonomous_loop(goal: str):
             sequence_break = False
             
             for step in steps:
-                print(f"Step: {step}") # DEBUG: Print what the LLM wants to do
+                print(f"Plan: {step}") 
                 
-                # Normalize action to lowercase to handle LLM inconsistencies (e.g. "TYPE" vs "type")
                 action_type = step.get('action', '').lower()
-                step['action'] = action_type # Update in place for perform_action usage
+                step['action'] = action_type 
 
                 if action_type == 'done':
                     print("Goal Success!")
@@ -216,7 +243,7 @@ async def run_autonomous_loop(goal: str):
                 target_id = step.get('element_id')
                 
                 if target_id is None:
-                    # If action requires an ID but is None, skipping is safest, or maybe it's a generic scroll?
+                    # If action requires an ID but is None...
                     if action_type in ['click', 'type']:
                         print(f"Warning: Action '{action_type}' requires an element_id but got None. Skipping.")
                         sequence_break = True
@@ -233,20 +260,48 @@ async def run_autonomous_loop(goal: str):
                     sequence_break = True
                     break
                 
-                # Execute
-                try:
-                    await perform_action(page, step, target_element)
-                    history += f"Step {step_count+1}: {step.get('action')} on {target_element['label']}. "
-                except Exception as e:
-                    print(f"Action failed: {e}")
-                    sequence_break = True
-                    break
+                # --- NEW GUIDANCE MODE ---
+                # Calculate Absolute Screen Coordinates
+                # element_viewport_x + window_screen_x
+                # element_viewport_y + window_screen_y + estimated_header_height
                 
-                # Logic Fix: Assuming UI changes on click
+                abs_x = target_element['coord']['x'] + offsets['screenX']
+                abs_y = target_element['coord']['y'] + offsets['screenY'] + offsets['topOffset']
+                
+                # Friendly Instruction Formatting
+                label_clean = target_element['label'].split('[')[0].strip() # Remove the [INPUT] helper tag
+                
                 if action_type == 'click':
-                     print("Click action performed. Re-evaluating page state for safety.")
-                     sequence_break = True
-                     break
+                    instruction = f"Please click on '{label_clean}'"
+                elif action_type == 'type':
+                    txt = step.get('text', 'text')
+                    instruction = f"Type '{txt}' here"
+                else:
+                    instruction = f"{action_type.title()} on {label_clean}"
+
+                # 1. Send Guidance (Arrow)
+                await send_guidance_request(int(abs_x), int(abs_y), label_clean, instruction)
+
+                # 2. Update History (Assume success because user will do it)
+                history += f"Step {step_count+1}: {instruction}. "
+
+                # 3. Wait for User to do it
+                try:
+                    await wait_for_user_interaction(page)
+                except Exception as e:
+                    print(f"Wait failed: {e}")
+                
+                # 4. Break sequence to re-sense after EVERY user action
+                # Since the user logic is opaque, we must assume the page *might* change.
+                print("User acted. Re-sensing page...")
+                sequence_break = True
+                break
+            
+            if sequence_break:
+                print("Sequence interrupted for refresh...")
+            
+            step_count += 1
+            await asyncio.sleep(1)
             
             if sequence_break:
                 print("Sequence interrupted, re-sensing...")
