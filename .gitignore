@@ -11,6 +11,10 @@ dist-electron
 # code coverage
 coverage
 *.lcov
+certificate.p12
+package-mac-signed.sh
+release/builder-debug.yml
+release
 
 # logs
 logs
