@@ -2,12 +2,19 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
 from openai import OpenAI
+from dotenv import load_dotenv
 import os
 import json
 
 app = FastAPI()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+load_dotenv()
+
+key = os.getenv("OPENAI_API_KEY")
+if not key:
+    raise ValueError("FATAL: OPENAI_API_KEY is missing from .env!")
+
+client = OpenAI(api_key=key)
 
 class Element(BaseModel):
     id: int
