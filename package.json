@@ -6,29 +6,35 @@
   "private": true,
   "scripts": {
     "build:electron": "bun run tsc -p tsconfig.electron.json",
-    "build:renderer": "bun build src/renderer.ts --outdir src --target browser",
+    "build:renderer": "vite build",
     "build": "bun run build:electron && bun run build:renderer",
     "start": "bun run build && electron .",
-    "dev": "bun run build && electron .",
+    "dev": "bun run build:electron && concurrently -k \"bun run watch:electron\" \"electron .\"",
     "dev:watch": "concurrently -k \"bun run watch:electron\" \"bun run watch:renderer\" \"bun run watch:app\"",
     "watch:electron": "bun run tsc -p tsconfig.electron.json --watch",
-    "watch:renderer": "bun build src/renderer.ts --outdir src --target browser --watch",
+    "watch:renderer": "vite",
     "watch:app": "sleep 2 && electron .",
-    "clean": "rm -rf dist-electron src/*.js src/*.js.map"
+    "clean": "rm -rf dist-electron dist-renderer"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/node": "^25.0.9",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "concurrently": "^9.2.1",
     "electron": "^40.0.0",
     "electron-builder": "^26.4.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^7.3.1"
   },
   "dependencies": {
     "@11labs/client": "^0.2.0",
     "@supabase/supabase-js": "^2.90.1",
     "dotenv": "^17.2.3",
     "elevenlabs": "^1.59.0",
-    "install": "^0.13.0"
+    "install": "^0.13.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   }
 }

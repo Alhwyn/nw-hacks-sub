@@ -1,33 +1,11 @@
 // Renderer process - Voice conversation with ElevenLabs Conversational AI
+// Note: This is legacy code. The React app in App.tsx/ConversationContext.tsx is now the main UI.
 import { Conversation } from '@11labs/client';
+import type { ElectronAPI } from './types';
 
 declare global {
   interface Window {
-    electronAPI: {
-      permission: {
-        getScreenStatus: () => Promise<string>;
-        requestScreen: () => Promise<{
-          success: boolean;
-          status: string;
-          message?: string;
-        }>;
-      };
-      conversation: {
-        getSignedUrl: () => Promise<string>;
-        getConfig: () => Promise<{
-          voiceId: string;
-          systemPrompt: string;
-          firstMessage: string;
-        }>;
-      };
-      vision: {
-        analyzeScreen: (question?: string) => Promise<string>;
-        captureAndDescribe: () => Promise<{
-          screenshot: string;
-          description: string;
-        }>;
-      };
-    };
+    electronAPI: ElectronAPI;
   }
 }
 
@@ -36,6 +14,7 @@ let isCallActive = false;
 let autoStartAttempted = false;
 let userEndedCall = false; // Track if user manually ended the call
 let currentScreenContext: string | null = null; // Store current screen description
+let screenViewPermissionGranted = false; // Track if user granted permission to view screen
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('=== DOMContentLoaded event fired ===');
@@ -128,9 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       console.log('Getting conversation config...');
       const config = await api.conversation.getConfig();
-      console.log('Config received:', { 
-        hasVoiceId: !!config.voiceId
-      });
+      console.log('Config received:', { hasVoiceId: !!config.voiceId });
       
       console.log('Starting ElevenLabs conversation session...');
       
@@ -149,8 +126,61 @@ document.addEventListener('DOMContentLoaded', () => {
         signedUrl,
         ...(Object.keys(overrides).length > 0 ? { overrides } : {}),
         clientTools: {
-          describe_screen: {
-            description: 'Get detailed information about what is currently visible on the user\'s screen. Use this when you need to see what the user is looking at or help them with something on their screen.',
+          request_screen_permission: {
+            description: 'Ask the user for permission to view their screen. Must be called before using view_screen. Returns whether permission was granted. Always explain why you need to see the screen.',
+            parameters: {
+              type: 'object',
+              properties: {
+                reason: {
+                  type: 'string',
+                  description: 'Brief, friendly explanation of why you need to see the screen to help them',
+                },
+              },
+              required: ['reason'],
+            },
+            handler: async (params: { reason?: string }) => {
+              console.log('Client tool request_screen_permission called with:', params);
+              
+              return new Promise<string>((resolve) => {
+                const modal = document.getElementById('screen-permission-modal')!;
+                const reasonText = document.getElementById('permission-reason')!;
+                const allowBtn = document.getElementById('permission-allow')!;
+                const denyBtn = document.getElementById('permission-deny')!;
+                
+                // Set the reason text
+                const reason = params.reason || 'The assistant wants to see your screen to help you better.';
+                reasonText.textContent = reason;
+                
+                // Show modal
+                modal.classList.remove('hidden');
+                
+                // Handle allow
+                const handleAllow = () => {
+                  screenViewPermissionGranted = true;
+                  modal.classList.add('hidden');
+                  allowBtn.removeEventListener('click', handleAllow);
+                  denyBtn.removeEventListener('click', handleDeny);
+                  console.log('Screen permission granted by user');
+                  resolve('Permission granted. You can now use view_screen to see what is on the user\'s screen.');
+                };
+                
+                // Handle deny
+                const handleDeny = () => {
+                  screenViewPermissionGranted = false;
+                  modal.classList.add('hidden');
+                  allowBtn.removeEventListener('click', handleAllow);
+                  denyBtn.removeEventListener('click', handleDeny);
+                  console.log('Screen permission denied by user');
+                  resolve('Permission denied. The user does not want you to view their screen right now. Continue helping them without screen access.');
+                };
+                
+                allowBtn.addEventListener('click', handleAllow);
+                denyBtn.addEventListener('click', handleDeny);
+              });
+            },
+          },
+          view_screen: {
+            description: 'View and analyze what is currently on the user\'s screen. REQUIRES permission from request_screen_permission first. Use this to see applications, windows, content, and UI elements visible on screen.',
             parameters: {
               type: 'object',
               properties: {
@@ -161,13 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
               },
             },
             handler: async (params: { question?: string }) => {
-              console.log('Client tool describe_screen called with:', params);
+              console.log('Client tool view_screen called with:', params);
+              
+              if (!screenViewPermissionGranted) {
+                console.log('Screen permission not granted, denying view_screen request');
+                return 'Permission denied. You must call request_screen_permission first and receive user approval before you can view their screen.';
+              }
+              
               try {
                 const result = await api.vision.analyzeScreen(params.question);
                 console.log('Screen analysis result:', result.substring(0, 100) + '...');
                 return result;
               } catch (error) {
-                console.error('Error in describe_screen tool:', error);
+                console.error('Error in view_screen tool:', error);
                 return 'Unable to analyze screen at this moment.';
               }
             },
@@ -190,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
           isCallActive = false;
           conversation = null;
           currentScreenContext = null;
+          screenViewPermissionGranted = false; // Reset permission on disconnect
           
           if (userEndedCall) {
             updateStatus('disconnected', 'Ended');
@@ -267,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await conversation.endSession();
         conversation = null;
         isCallActive = false;
+        screenViewPermissionGranted = false; // Reset permission on end
         updateStatus('disconnected', 'Ended');
         callBtn.style.display = 'flex';
         endCallBtn.style.display = 'none';
