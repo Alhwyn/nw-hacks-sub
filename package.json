@@ -1,15 +1,26 @@
 {
   "name": "odly",
+  "main": "index.ts",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
     "@types/bun": "latest",
     "@types/node": "^25.0.9",
+    "autoprefixer": "^10.4.23",
     "electron": "^40.0.0",
-    "electron-builder": "^26.4.0"
+    "electron-builder": "^26.4.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css",
+    "watch:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css",
+    "start": "electron .",
+    "dev": "electron . --inspect=5858"
   }
 }
