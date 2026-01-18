@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -18,10 +19,15 @@
   --warning: #ed8936;
   --blue: #4299e1;
   --purple: #9f7aea;
+  --bottom-controls-height: 200px;
 }
 
+h2 {
+  font-family: "Inclusive Sans";
+  font-size: 16px;
+}
 html, body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-family: 'Inclusive Sans';
   color: var(--text);
   height: 100%;
   overflow: hidden;
@@ -140,6 +146,9 @@ body::before {
   padding-top: 40px;
   position: relative;
   z-index: 1;
+  padding-bottom: 160px;
+  border: 3px solid red; /* DEBUG */
+
 }
 
 /* Main Chat Area */
@@ -147,10 +156,13 @@ body::before {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-self: self-end;
   padding: 1.5rem;
-  padding-bottom: 120px;
   overflow-y: auto;
   gap: 1rem;
+  margin-bottom: 1rem;
+  border: 3px solid green; /* DEBUG */
+
 }
 
 /* Message Bubbles */
@@ -216,7 +228,7 @@ body::before {
 }
 
 .message-content {
-  font-size: 0.95rem;
+  font-size: 20px;
   line-height: 1.5;
   color: var(--text);
   word-wrap: break-word;
@@ -288,13 +300,23 @@ body::before {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(to top, rgba(30, 50, 35, 0.9) 0%, transparent 100%);
+  z-index: 50;
+}
+
+/* Ensure grouped button blocks center their contents */
+.btn-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  background: linear-gradient(to top, rgba(30, 50, 35, 0.9) 0%, transparent 100%);
-  z-index: 50;
 }
 
 /* Voice Visualizer */
@@ -302,13 +324,13 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  height: 30px;
+  height: 10px;
+  margin-bottom: 10px;
 }
 
 .voice-visualizer .bar {
   width: 4px;
-  height: 16px;
+  height: 7px;
   background: var(--text);
   border-radius: 2px;
   animation: wave 0.8s ease-in-out infinite;
@@ -348,6 +370,7 @@ body::before {
 }
 
 /* Voice Button */
+
 .voice-btn {
   width: 72px;
   height: 72px;
@@ -365,6 +388,10 @@ body::before {
     0 8px 32px rgba(0, 0, 0, 0.2),
     0 4px 16px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .voice-btn:hover {

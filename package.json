@@ -14,23 +14,21 @@
     "watch:electron": "bun run tsc -p tsconfig.electron.json --watch",
     "watch:renderer": "vite",
     "watch:app": "sleep 2 && electron .",
-    "clean": "rm -rf dist-electron dist-renderer",
-    "build:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css",
-    "watch:css": "bun ./node_modules/.bin/tailwindcss -i ./src/renderer/styles.css -o ./src/renderer/output.css"
+    "clean": "rm -rf dist-electron dist-renderer"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "@types/bun": "latest",
     "@types/node": "^25.0.9",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "autoprefixer": "^10.4.23",
+    "concurrently": "^9.2.1",
     "electron": "^40.0.0",
     "electron-builder": "^26.4.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.2",
-    "concurrently": "^9.2.1",
     "typescript": "^5",
     "vite": "^7.3.1"
   },
