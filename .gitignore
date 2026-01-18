@@ -34,4 +34,5 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .DS_Store
 
 # custom (Aaron)
-server/page_map.json
+.env
+/server/page_map.json
