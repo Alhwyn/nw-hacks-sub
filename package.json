@@ -5,13 +5,13 @@
   "main": "dist-electron/main.js",
   "private": true,
   "scripts": {
-    "build:electron": "bun run tsc -p tsconfig.electron.json",
+    "build:electron": "tsc -p tsconfig.electron.json",
     "build:renderer": "vite build",
     "build": "bun run build:electron && bun run build:renderer",
     "start": "bun run build && electron .",
     "dev": "bun run build:electron && concurrently -k \"bun run watch:electron\" \"electron .\"",
     "dev:watch": "concurrently -k \"bun run watch:electron\" \"bun run watch:renderer\" \"bun run watch:app\"",
-    "watch:electron": "bun run tsc -p tsconfig.electron.json --watch",
+    "watch:electron": "tsc -p tsconfig.electron.json --watch",
     "watch:renderer": "vite",
     "watch:app": "sleep 2 && electron .",
     "clean": "rm -rf dist-electron dist-renderer"
@@ -37,11 +37,14 @@
   },
   "dependencies": {
     "@11labs/client": "^0.2.0",
+    "@jitsi/robotjs": "^0.6.21",
     "@supabase/supabase-js": "^2.90.1",
     "dotenv": "^17.2.3",
     "elevenlabs": "^1.59.0",
     "install": "^0.13.0",
+    "openai": "^6.16.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "robotjs": "^0.6.0"
   }
 }

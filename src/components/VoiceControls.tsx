@@ -3,7 +3,8 @@ import { useConversation } from '../context/ConversationContext';
 import { VoiceVisualizer } from './VoiceVisualizer';
 
 export const VoiceControls: React.FC = () => {
-  const { isCallActive, startConversation, endConversation } = useConversation();
+  const { isCallActive, connectionStatus, startConversation, endConversation } = useConversation();
+  const isConnecting = connectionStatus === 'connecting';
 
   return (
     <div className="bottom-controls">
