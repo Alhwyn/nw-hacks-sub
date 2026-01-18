@@ -36,5 +36,4 @@ dist-electron
 
 # custom (Aaron)
 .env
-server/page_map.json
 server/user_data/
