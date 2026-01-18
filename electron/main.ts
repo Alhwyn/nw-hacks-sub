@@ -11,10 +11,10 @@ import * as elevenlabsService from './services/elevenlabs';
 
 function createWindow(): void {
   const win = new BrowserWindow({
-    width: 1400,           // High width
-    height: 900,
-    minWidth: 900,
-    minHeight: 600,
+    width: 700,
+    height: 500,
+    minWidth: 500,
+    minHeight: 400,
     
     // Glassy/Transparent window settings
     transparent: true,     // Enable transparency
