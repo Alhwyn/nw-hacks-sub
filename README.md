@@ -18,35 +18,58 @@ bun install
 Create a `.env` file in the root directory with the following:
 
 ```env
+# Vercel API URL (for production deployment)
+VERCEL_API_URL=URL
+
+# Optional: OpenAI API key if using OpenAI features
 OPENAI_API_KEY=your_openai_api_key_here
-ELEVENLABS_API_KEY=your_api_key_here
-ELEVENLABS_AGENT_ID=your_agent_id_here
+
+# Optional: Voice override
 VOICE_ID=your_voice_id_here  # Optional - uses dashboard voice if not set
 ```
 
-**How to get these values:**
+**Important Notes:**
+- The `VERCEL_API_URL` should point to your deployed Vercel API (see Deployment section below)
+- ElevenLabs API keys are now stored securely on Vercel, not in your local `.env`
+- For local development without Vercel, set `VERCEL_API_URL=http://localhost:3000` and run `vercel dev`
 
-1. **OPENAI_API_KEY**: Get from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-2. **ELEVENLABS_API_KEY**: Get from [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys)
-3. **ELEVENLABS_AGENT_ID**: 
-   - Go to [elevenlabs.io/conversational-ai](https://elevenlabs.io/conversational-ai)
-   - Click "Create Agent" 
-   - Copy the agent ID from the URL or settings
-4. **VOICE_ID** (optional): 
-   - If you want to override the voice set in your agent dashboard
-   - Get voice ID from [elevenlabs.io/voices](https://elevenlabs.io/voices)
-   - Leave empty to use the voice configured in your agent
+### 3. Run the Application
 
-### 3. Build and Run
-
+**Development Mode:**
 ```bash
-# Build TypeScript files
+bun run dev
+```
+
+**Production Build:**
+```bash
 bun run build
-
-# Start the app
 bun run start
+```
 
-# Or for development
+## Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on deploying the API to Vercel.
+
+**Quick Summary:**
+
+1. Deploy API to Vercel:
+```bash
+vercel --prod
+```
+
+2. Set environment variables on Vercel:
+```bash
+vercel env add ELEVENLABS_API_KEY
+vercel env add ELEVENLABS_AGENT_ID
+```
+
+3. Update your `.env` with the production URL:
+```env
+VERCEL_API_URL=https://your-url.vercel.app
+```
+
+4. Run the app:
+```bash
 bun run dev
 ```
 

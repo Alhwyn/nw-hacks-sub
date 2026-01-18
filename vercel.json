@@ -1,0 +1,12 @@
+{
+  "framework": null,
+  "installCommand": "cd api && npm install",
+  "buildCommand": "mkdir -p dist && echo 'API-only deployment' > dist/index.html",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  }
+}
