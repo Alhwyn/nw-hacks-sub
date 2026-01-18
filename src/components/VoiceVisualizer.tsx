@@ -2,9 +2,9 @@ import React from 'react';
 import { useConversation } from '../context/ConversationContext';
 
 export const VoiceVisualizer: React.FC = () => {
-  const { isCallActive, connectionStatus } = useConversation();
+  const { statusText, connectionStatus } = useConversation();
 
-  if (!isCallActive) {
+  if (statusText == "Ended" || statusText == "Connecting") {
     return null;
   }
 
