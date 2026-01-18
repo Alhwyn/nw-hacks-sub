@@ -65,7 +65,7 @@ vercel env add ELEVENLABS_AGENT_ID
 
 3. Update your `.env` with the production URL:
 ```env
-VERCEL_API_URL=https://your-url.vercel.app
+VERCEL_API_URL=https://nwhacks-nine.vercel.app/
 ```
 
 4. Run the app:
