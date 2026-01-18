@@ -18,6 +18,7 @@ bun install
 Create a `.env` file in the root directory with the following:
 
 ```env
+OPENAI_API_KEY=your_openai_api_key_here
 ELEVENLABS_API_KEY=your_api_key_here
 ELEVENLABS_AGENT_ID=your_agent_id_here
 VOICE_ID=your_voice_id_here  # Optional - uses dashboard voice if not set
@@ -25,12 +26,13 @@ VOICE_ID=your_voice_id_here  # Optional - uses dashboard voice if not set
 
 **How to get these values:**
 
-1. **ELEVENLABS_API_KEY**: Get from [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys)
-2. **ELEVENLABS_AGENT_ID**: 
+1. **OPENAI_API_KEY**: Get from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. **ELEVENLABS_API_KEY**: Get from [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys)
+3. **ELEVENLABS_AGENT_ID**: 
    - Go to [elevenlabs.io/conversational-ai](https://elevenlabs.io/conversational-ai)
    - Click "Create Agent" 
    - Copy the agent ID from the URL or settings
-3. **VOICE_ID** (optional): 
+4. **VOICE_ID** (optional): 
    - If you want to override the voice set in your agent dashboard
    - Get voice ID from [elevenlabs.io/voices](https://elevenlabs.io/voices)
    - Leave empty to use the voice configured in your agent

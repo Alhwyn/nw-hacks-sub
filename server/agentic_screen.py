@@ -8,7 +8,8 @@ from playwright.async_api import async_playwright
 
 # --- Configuration ---
 API_URL = "http://localhost:8000/generate-steps"
-GUIDANCE_URL = "http://localhost:3000/set-arrow" # Placeholder for external guidance service
+HIGHLIGHT_URL = "http://localhost:3001/highlight"  # Electron overlay highlight service
+CLEAR_URL = "http://localhost:3001/clear"  # Clear highlight
 
 def encode_image(image_path):
     if not os.path.exists(image_path):
@@ -106,18 +107,40 @@ async def get_and_save_map(page):
         
     return elements
 
-async def send_guidance_request(x: int, y: int, label: str, instruction: str):
+async def send_highlight_request(rect: Dict, label: str, instruction: str, offsets: Dict):
     """
-    Sends a GET request to the external service to render a big red arrow.
+    Sends a POST request to the Electron overlay service to render a bounding box highlight.
     """
     try:
-        params = {"x": x, "y": y, "label": label, "instruction": instruction}
-        print(f"--> Sending GUIDANCE: Arrow at ({x}, {y}) [Screen Absolute] for '{label}'")
+        # Calculate absolute screen coordinates
+        abs_x = int(rect['x'] + offsets['screenX'])
+        abs_y = int(rect['y'] + offsets['screenY'] + offsets['topOffset'])
+        
+        payload = {
+            "x": abs_x,
+            "y": abs_y,
+            "width": int(rect['w']),
+            "height": int(rect['h']),
+            "label": label,
+            "instruction": instruction
+        }
+        
+        print(f"--> Sending HIGHLIGHT: Box at ({abs_x}, {abs_y}) [{rect['w']}x{rect['h']}] for '{label}'")
         
         async with httpx.AsyncClient(timeout=5.0) as client:
-            await client.get(GUIDANCE_URL, params=params)
+            await client.post(HIGHLIGHT_URL, json=payload)
     except Exception as e:
-        print(f"Warning: Could not send guidance request: {e}")
+        print(f"Warning: Could not send highlight request: {e}")
+
+async def clear_highlight():
+    """
+    Clears the current highlight overlay.
+    """
+    try:
+        async with httpx.AsyncClient(timeout=5.0) as client:
+            await client.post(CLEAR_URL)
+    except Exception as e:
+        print(f"Warning: Could not clear highlight: {e}")
 
 async def get_browser_offsets(page):
     """
@@ -260,14 +283,7 @@ async def run_autonomous_loop(goal: str):
                     sequence_break = True
                     break
                 
-                # --- NEW GUIDANCE MODE ---
-                # Calculate Absolute Screen Coordinates
-                # element_viewport_x + window_screen_x
-                # element_viewport_y + window_screen_y + estimated_header_height
-                
-                abs_x = target_element['coord']['x'] + offsets['screenX']
-                abs_y = target_element['coord']['y'] + offsets['screenY'] + offsets['topOffset']
-                
+                # --- HIGHLIGHT MODE ---
                 # Friendly Instruction Formatting
                 label_clean = target_element['label'].split('[')[0].strip() # Remove the [INPUT] helper tag
                 
@@ -279,8 +295,8 @@ async def run_autonomous_loop(goal: str):
                 else:
                     instruction = f"{action_type.title()} on {label_clean}"
 
-                # 1. Send Guidance (Arrow)
-                await send_guidance_request(int(abs_x), int(abs_y), label_clean, instruction)
+                # 1. Send Highlight (Bounding Box)
+                await send_highlight_request(target_element['rect'], label_clean, instruction, offsets)
 
                 # 2. Update History (Assume success because user will do it)
                 history += f"Step {step_count+1}: {instruction}. "
@@ -291,7 +307,10 @@ async def run_autonomous_loop(goal: str):
                 except Exception as e:
                     print(f"Wait failed: {e}")
                 
-                # 4. Break sequence to re-sense after EVERY user action
+                # 4. Clear the highlight after user interaction
+                await clear_highlight()
+                
+                # 5. Break sequence to re-sense after EVERY user action
                 # Since the user logic is opaque, we must assume the page *might* change.
                 print("User acted. Re-sensing page...")
                 sequence_break = True

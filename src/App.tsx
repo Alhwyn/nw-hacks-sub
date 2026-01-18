@@ -4,6 +4,7 @@ import { Titlebar } from './components/Titlebar';
 import { StatusIndicator } from './components/StatusIndicator';
 import { ChatArea } from './components/ChatArea';
 import { VoiceControls } from './components/VoiceControls';
+import { getElectronAPI } from './types';
 import './styles.css';
 
 const AppContent: React.FC = () => {
@@ -15,7 +16,7 @@ const AppContent: React.FC = () => {
     // Check screen permission on startup
     const checkPermissions = async () => {
       try {
-        const api = window.electronAPI;
+        const api = getElectronAPI();
         const screenStatus = await api.permission.getScreenStatus();
         console.log('Screen recording permission:', screenStatus);
 
