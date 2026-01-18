@@ -35,4 +35,5 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # custom (Aaron)
 .env
-/server/page_map.json
+server/page_map.json
+server/user_data/
