@@ -1,15 +1,60 @@
-# odly
+# Granny - Voice Assistant for Elderly Users
 
-To install dependencies:
+A real-time voice conversation app using ElevenLabs Conversational AI, built with Electron and Bun.
+
+## Setup
+
+### 1. Install dependencies
 
 ```bash
 bun install
 ```
 
-To run:
+### 2. Configure Environment Variables
 
-```bash
-bun run index.ts
+Create a `.env` file in the root directory with the following:
+
+```env
+ELEVENLABS_API_KEY=your_api_key_here
+ELEVENLABS_AGENT_ID=your_agent_id_here
+VOICE_ID=your_voice_id_here  # Optional - uses dashboard voice if not set
 ```
 
-This project was created using `bun init` in bun v1.3.5. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+**How to get these values:**
+
+1. **ELEVENLABS_API_KEY**: Get from [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys)
+2. **ELEVENLABS_AGENT_ID**: 
+   - Go to [elevenlabs.io/conversational-ai](https://elevenlabs.io/conversational-ai)
+   - Click "Create Agent" 
+   - Copy the agent ID from the URL or settings
+3. **VOICE_ID** (optional): 
+   - If you want to override the voice set in your agent dashboard
+   - Get voice ID from [elevenlabs.io/voices](https://elevenlabs.io/voices)
+   - Leave empty to use the voice configured in your agent
+
+### 3. Build and Run
+
+```bash
+# Build TypeScript files
+bun run build
+
+# Start the app
+bun run start
+
+# Or for development
+bun run dev
+```
+
+## Features
+
+- Real-time voice conversations with ElevenLabs Conversational AI
+- Auto-starts conversation when app opens
+- Live transcript display
+- Optimized for elderly users with simple, patient responses
+
+## Tech Stack
+
+- **Electron** - Desktop app framework
+- **Bun** - JavaScript runtime and package manager
+- **TypeScript** - Type-safe development
+- **ElevenLabs Conversational AI** - Real-time voice agent

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' data: blob: https://*.elevenlabs.io; img-src 'self' data:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://api.elevenlabs.io wss://*.elevenlabs.io">
+  <title>Granny</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Custom Titlebar (draggable) -->
+  <div class="titlebar">
+    <span class="titlebar-title">Granny</span>
+  </div>
+
+  <!-- Status Indicator -->
+  <div id="connection-status" class="status-indicator">
+    <div class="status-dot"></div>
+    <span id="status-text">Connecting</span>
+  </div>
+
+  <div class="app-container">
+    <!-- Chat Messages Area -->
+    <div id="chat-area" class="chat-area">
+      <!-- Messages will be added here dynamically -->
+      <!-- User messages on left, Agent messages on right -->
+    </div>
+
+    <!-- Bottom Voice Controls -->
+    <div class="bottom-controls">
+      <!-- Voice Visualizer -->
+      <div id="voice-visualizer" class="voice-visualizer" style="display:none">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!-- Voice Button -->
+      <button id="call-btn" class="voice-btn" title="Start voice conversation">
+        <svg class="mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+      </button>
+
+      <!-- End Call Button (hidden initially) -->
+      <button id="end-call-btn" class="voice-btn end-call" style="display:none" title="End conversation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>
